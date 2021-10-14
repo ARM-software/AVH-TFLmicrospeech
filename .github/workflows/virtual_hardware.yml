@@ -1,0 +1,37 @@
+# This is a basic workflow to help you get started with Actions on CMSIS projects
+# See also https://community.arm.com/developer/tools-software/tools/b/tools-software-ides-blog/posts/infrastructure-for-continuous-integration-tests
+
+name: Arm Virtual Hardware example
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# To allow you to run this workflow manually from the GitHub Actions tab add
+  workflow_dispatch:
+
+jobs:
+  ci_demonstration:
+    runs-on: self-hosted
+    env:
+      working-directory: ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: What has been cloned?
+        run: echo "${{ github.repository }} has been cloned."
+
+      - name: Get dependencies
+        run: cp_install.sh packlist
+        working-directory: ${{env.working-directory}}
+
+      - name: Build the micro_speech example
+        run: cbuild.sh microspeech.Example.cprj
+        working-directory: ${{env.working-directory}}
+
+      - name: Run the micro_speech example
+        run: ./run_example.sh
+        working-directory: ${{env.working-directory}}

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<cprj schemaVersion="0.0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CPRJ.xsd">
+
+  <created timestamp="2021-10-06T16:20:34" tool="uVision V5.35.0.0"/>
+
+  <info>
+    <name>Platform</name>
+    <description/>
+  </info>
+
+  <layers>
+    <layer name="App">
+      <description>Platform is a simple CMSIS RTOS2 example skeleton</description>
+      <category>Platform</category>
+      <license>Apache 2.0</license>
+      <interfaces>
+        <consumes id="RTOS2"/>
+      </interfaces>
+    </layer>
+    <layer hasTarget="1" name="Board">
+      <description>Board setup with interfaces</description>
+      <category>Board</category>
+      <license>BSD 3-Clause, Apache 2.0</license>
+      <interfaces>
+        <consumes id="RTOS2"/>
+        <provides id="C_ETH" value="0"/>
+        <provides id="C_MCI" value="0"/>
+        <provides id="A_UART" value="3"/>
+        <provides id="C_VIO"/>
+        <provides id="STDOUT"/>
+        <provides id="STDIN"/>
+        <provides id="STDERR"/>
+        <provides id="Heap" value="65536"/>
+      </interfaces>
+    </layer>
+    <layer name="RTOS">
+      <description>Keil RTX5 open-source real-time operating system with CMSIS-RTOS v2 API</description>
+      <doc>https://www2.keil.com/mdk5/cmsis/rtx</doc>
+      <category>RTOS</category>
+      <license>Apache 2.0</license>
+      <interfaces>
+        <provides id="RTOS2"/>
+      </interfaces>
+    </layer>
+  </layers>
+
+  <packages>
+    <package name="MIMXRT1064-EVK_BSP" vendor="Keil" version="1.2.1:1.2.1"/>
+    <package name="CMSIS-Driver" vendor="ARM"/>
+    <package name="CMSIS" vendor="ARM"/>
+    <package name="ARM_Compiler" vendor="Keil"/>
+    <package name="iMXRT1064_MWP" vendor="Keil" version="1.4.0:1.4.0"/>
+    <package name="EVK-MIMXRT1064_BSP" vendor="NXP" version="13.0.0:13.0.0"/>
+    <package name="MIMXRT1064_DFP" vendor="NXP" version="13.0.0:13.0.0"/>
+    <package name="flatbuffers" vendor="tensorflow" version="0.4.0:0.4.0"/>
+    <package name="gemmlowp" vendor="tensorflow" version="0.4.0:0.4.0"/>
+    <package name="kissfft" vendor="tensorflow" version="0.4.0:0.4.0"/>
+    <package name="ruy" vendor="tensorflow" version="0.4.0:0.4.0"/>
+    <package name="tensorflow-lite-micro" vendor="tensorflow" version="0.4.0:0.4.0"/>
+  </packages>
+
+  <compilers>
+    <compiler name="AC6" version="6.0.0:6.99.99"/>
+  </compilers>
+
+  <target Bname="EVK-MIMXRT1064_MDK" Bvendor="NXP" Bversion="Rev.A" Ddsp="NO_DSP" Dendian="Little-endian" Dfpu="NO_FPU" Dmve="NO_MVE" Dname="MIMXRT1064DVL6A" Dsecure="Non-secure" Dtz="NO_TZ" Dvendor="NXP:11">
+    <output intdir="./Objects/" name="microspeech" outdir="./Objects/" type="exe"/>
+    <ldflags add="--diag_suppress 6314,6329,6439 --strict --predefine=&quot;-DXIP_BOOT_HEADER_ENABLE=1&quot; --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers --entry=Reset_Handler" compiler="AC6" file="./RTE/Device/MIMXRT1064DVL6A/MIMXRT1064xxxxx_flexspi_nor.scf"/>
+    <cflags add="-Os -Wno-documentation -Wno-documentation-unknown-command -Wno-license-management -Wno-missing-noreturn -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-nonportable-include-path -Wno-packed -Wno-parentheses-equality -Wno-reserved-id-macro -Wno-sign-conversion -Wno-unused-macros -ffunction-sections -fno-rtti -fshort-enums -fshort-wchar -funsigned-char -gdwarf-4 -std=c99 -xc" compiler="AC6"/>
+    <cxxflags add="-Os -Wno-documentation -Wno-documentation-unknown-command -Wno-license-management -Wno-missing-noreturn -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-nonportable-include-path -Wno-packed -Wno-parentheses-equality -Wno-reserved-id-macro -Wno-sign-conversion -Wno-unused-macros -ffunction-sections -fno-exceptions -fno-rtti -fshort-enums -fshort-wchar -funsigned-char -gdwarf-4 -std=c++11 -xc++" compiler="AC6"/>
+    <asflags add="-gdwarf-3 -masm=auto" compiler="AC6"/>
+    <includes>.;../VSI/audio/include;../micro_speech/src</includes>
+    <defines>CODEC_WM8960_ENABLE;SKIP_SYSCLK_INIT;XIP_BOOT_HEADER_DCD_ENABLE=1;XIP_BOOT_HEADER_ENABLE=1;XIP_EXTERNAL_FLASH=1</defines>
+  </target>
+
+  <components>
+    <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="evkmimxrt1064" Cvendor="NXP" layer="Board">
+      <file attr="config" category="sourceC" name="project_template/board.c" version="1.0.0"/>
+      <file attr="config" category="header" name="project_template/board.h" version="1.0.0"/>
+      <file attr="config" category="sourceC" name="project_template/clock_config.c" version="1.0.0"/>
+      <file attr="config" category="header" name="project_template/clock_config.h" version="1.0.0"/>
+      <file attr="config" category="sourceC" name="project_template/dcd.c" version="1.0.0"/>
+      <file attr="config" category="header" name="project_template/dcd.h" version="1.0.0"/>
+      <file attr="config" category="sourceC" name="project_template/peripherals.c" version="1.0.0"/>
+      <file attr="config" category="header" name="project_template/peripherals.h" version="1.0.0"/>
+      <file attr="config" category="sourceC" name="project_template/pin_mux.c" version="1.0.0"/>
+      <file attr="config" category="header" name="project_template/pin_mux.h" version="1.0.0"/>
+    </component>
+    <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" layer="Board"/>
+    <component Cclass="CMSIS" Cgroup="DSP" Cvariant="Source" Cvendor="ARM"/>
+    <component Cclass="CMSIS" Cgroup="NN Lib" Cvendor="ARM"/>
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" layer="RTOS">
+      <file attr="config" category="source" name="CMSIS/RTOS2/RTX/Config/RTX_Config.c" version="5.1.1"/>
+      <file attr="config" category="header" name="CMSIS/RTOS2/RTX/Config/RTX_Config.h" version="5.5.2"/>
+    </component>
+    <component Cclass="CMSIS Driver" Cgroup="Ethernet MAC" Cvendor="Keil" layer="Board"/>
+    <component Cclass="CMSIS Driver" Cgroup="Ethernet PHY" Csub="KSZ8081RNA" Cvendor="Keil" layer="Board">
+      <cflags add="-DETH_PHY_REF_CLK_50M=&quot;1&quot;" compiler="AC6"/>
+    </component>
+    <component Cclass="CMSIS Driver" Cgroup="MCI" Cvendor="Keil" layer="Board"/>
+    <component Cclass="CMSIS Driver" Cgroup="USART" Csub="lpuart_cmsis" Cvendor="NXP" layer="Board"/>
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="MIMXRT1064-EVK" Cvendor="Keil" layer="Board"/>
+    <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow"/>
+    <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow"/>
+    <component Cclass="Data Processing" Cgroup="Math" Csub="kissfft" Cvariant="tensorflow" Cvendor="tensorflow"/>
+    <component Cclass="Data Processing" Cgroup="Math" Csub="ruy" Cvariant="tensorflow" Cvendor="tensorflow"/>
+    <component Cclass="Device" Cgroup="CMSIS" Csub="MIMXRT1064_header" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="CMSIS" Csub="MIMXRT1064_system" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="clock" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="codec" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="codec_i2c" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="codec_wm8960_adapter" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="common" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="dmamux" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="edma" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="enet" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="gpio" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="i2c" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="iomuxc" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="lists" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="lpi2c_adapter" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="lpuart" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="lpuart_adapter" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="lpuart_edma" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="sai" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="sai_edma" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="sdhc" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="wm8960" Cvendor="NXP"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="xip_board" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Drivers" Csub="xip_device" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Project Template" Csub="RTE_Device" Cvendor="NXP" layer="Board">
+      <file attr="config" category="header" name="template/RTE_Device.h" version="1.0.0"/>
+    </component>
+    <component Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console" Cvendor="NXP" layer="Board">
+      <cflags add="-DSDK_DEBUGCONSOLE=&quot;1&quot; -D__MCUXPRESSO" compiler="AC6"/>
+    </component>
+    <component Cclass="Device" Cgroup="SDK Utilities" Csub="serial_manager" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="SDK Utilities" Csub="serial_manager_uart" Cvendor="NXP" layer="Board"/>
+    <component Cclass="Device" Cgroup="Startup" Csub="MIMXRT1064_startup" Cvendor="NXP" layer="Board">
+      <file attr="config" category="linkerScript" name="arm/MIMXRT1064xxxxx_flexspi_nor.scf" version="1.1.0"/>
+      <file attr="config" category="linkerScript" name="arm/MIMXRT1064xxxxx_flexspi_nor_sdram.scf" version="1.1.0"/>
+      <file attr="config" category="linkerScript" name="arm/MIMXRT1064xxxxx_ram.scf" version="1.1.0"/>
+      <file attr="config" category="linkerScript" name="arm/MIMXRT1064xxxxx_sdram.scf" version="1.1.0"/>
+      <file attr="config" category="linkerScript" name="arm/MIMXRT1064xxxxx_sdram_txt.scf" version="1.1.0"/>
+    </component>
+    <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="CMSIS-NN" Cvendor="tensorflow"/>
+    <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow">
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/debug_log.cc" version="1.0"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/micro_time.cc" version="1.0"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/system_setup.cc" version="1.0"/>
+    </component>
+    <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="Keil" layer="Board">
+      <file attr="config" category="header" name="Config/EventRecorderConf.h" version="1.1.0"/>
+    </component>
+    <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDERR" Cvariant="User" Cvendor="Keil" layer="Board"/>
+    <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDIN" Cvariant="User" Cvendor="Keil" layer="Board"/>
+    <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDOUT" Cvariant="User" Cvendor="Keil" layer="Board"/>
+  </components>
+
+  <files>
+    <group name="App">
+      <file category="sourceC" layer="App" name="./microspeech.c"/>
+    </group>
+    <group name="Board">
+      <file category="sourceC" layer="Board" name="./main.c"/>
+      <file category="header" layer="Board" name="./main.h"/>
+    </group>
+    <group name="Board IO">
+      <file category="sourceC" layer="Board" name="./Board_IO/retarget_stdio.c"/>
+    </group>
+    <group name="Driver">
+      <file category="sourceC" name="./Driver_Audio/Audio_MIMXRT1064-EVK.c"/>
+    </group>
+    <group name="MCUXpresso">
+      <file category="other" layer="Board" name="./MIMXRT1064-EVK.mex"/>
+    </group>
+    <group name="Documentation">
+      <file category="doc" layer="App" name="./README.md"/>
+    </group>
+    <group name="TF_micro_frontend">
+      <file category="sourceCpp" name="../micro_speech/src/microfrontend/lib/fft.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/microfrontend/lib/fft_util.cc"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/filterbank.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/filterbank_util.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/frontend.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/frontend_util.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/log_lut.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/log_scale.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/log_scale_util.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/noise_reduction.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/noise_reduction_util.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/pcan_gain_control.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/pcan_gain_control_util.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/window.c"/>
+      <file category="sourceC" name="../micro_speech/src/microfrontend/lib/window_util.c"/>
+    </group>
+    <group name="TF_micro_features">
+      <file category="sourceCpp" name="../micro_speech/src/micro_features/micro_features_generator.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/micro_features/micro_model_settings.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/micro_features/model.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/micro_features/no_micro_features_data.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/micro_features/yes_micro_features_data.cc"/>
+    </group>
+    <group name="TF_main">
+      <file category="sourceCpp" name="../micro_speech/src/audio_provider.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/command_responder.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/feature_provider.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/main_functions.cc"/>
+      <file category="sourceCpp" name="../micro_speech/src/recognize_commands.cc"/>
+    </group>
+  </files>
+
+</cprj>
