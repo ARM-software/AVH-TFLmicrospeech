@@ -9,7 +9,7 @@ Micro speech example for [TensorFlow Lite for Microcontrollers](https://www.tens
  - toolchain (IDE):
    - [MDK Microcontroller Development Kit](https://www.keil.com/mdk5)
  - toolchain (alternative: command-line tools):
-   - [CMSIS-Build](https://github.com/ARM-software/CMSIS_5/releases/download/5.7.0/cbuild_install.0.10.2.sh) that is a component of the [CMSIS5 release](https://github.com/ARM-software/CMSIS_5/releases)
+   - [CMSIS-Build](https://github.com/ARM-software/CMSIS_5/releases/download/5.8.0/cbuild_install.0.10.3.sh) command line build tools that are part of the [CMSIS_5 release](https://github.com/ARM-software/CMSIS_5/releases)
  - Fast Models:
    - FVP model for Corstone-300 MPS3 with VSI (example for FVP with user Python script)
    - [FVP model for Corstone-300 MPS3](https://developer.arm.com/tools-and-software/open-source-software/arm-platforms-software/arm-ecosystem-fvps)
