@@ -136,7 +136,8 @@ Underlying implementations automatically utilize target-specific hardware extens
 MVE: M-Profile Vector Extensions) and [**SIMD**](https://developer.arm.com/architectures/instruction-sets/dsp-extensions/dsp-for-cortex-m) (Single Instruction Multiple Data) and so maximize computing performance and reduce code footprint.<br>
 For devices with MVE (such as Cortex-M55), there is additional configuration field **Vector Extensions** in the **Options for Target..**-[**Target**](https://www.keil.com/support/man/docs/uv4/uv4_dg_adstarg.htm) dialog, that specifies MVE use in the project.
 <br>
-![MVE configuration in uVision](./images/mdk_conf_mve.png "MVE configuration in uVision project").
+
+![MVE configuration in uVision](./images/mdk_conf_mve.png "MVE configuration in uVision project")
 
 - **Ethos-U**<br>(Not functional at this moment). Uses implementation optimized for Arm Ethos-U NPUs.
 
