@@ -45,7 +45,7 @@ This example executes the program on Corstone SSE-300 with Ethos-U55 Fixed Virtu
 
 Example project has the following targets:
  - `Example`: target runs on FVP **with [**Virtual Streaming Interface (VSI)**](https://arm-software.github.io/VHT/main/simulation/html/group__arm__vsi.html)**
-    - Uses special Corstone SSE-300 Ethos-U55 FVP with VSI support)<br>
+    - Uses special Corstone SSE-300 Ethos-U55 FVP with VSI support<br>
       It is required to install the model executable and binaries in order to run this example.<br/>
       Expected installation directory on Windows: `C:\Program Files\Arm\VHT\models\Win64_VC2019`<br/>
       If installed in a different directory then this needs to be reflected:
