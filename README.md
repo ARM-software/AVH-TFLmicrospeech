@@ -153,4 +153,4 @@ There are three events defined:
 
 - **Event C2**: Verifies if a keyword was detected.
 
-After executing the program with different \ref tf_variants it can be observed that implementations optimized for Arm hardware extensions achieve significantly better performance for ML inference (C1 measurement), but also have shorter times for signal processing (C0 event).
+After executing the program with different TF-Lite kernel variants it can be observed that implementations optimized for Arm hardware extensions achieve significantly better performance for ML inference (C1 measurement), but also have shorter times for signal processing (C0 event).
