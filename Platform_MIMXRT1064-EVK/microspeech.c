@@ -25,6 +25,14 @@ static const osThreadAttr_t app_main_attr = {
   .stack_size = 4096U
 };
 
+static osThreadId_t app_main_tid;
+
+#ifdef __EVENT_DRIVEN
+void AudioRxEvent (void) {
+  osThreadFlagsSet(app_main_tid, 0x00000001U);
+}
+#endif
+
 /*---------------------------------------------------------------------------
  * Application main thread
  *---------------------------------------------------------------------------*/
@@ -34,6 +42,9 @@ static void app_main (void *argument) {
   setup();
   for (;;) {
     loop();
+#ifdef __EVENT_DRIVEN
+    osThreadFlagsWait(0x00000001U, osFlagsWaitAny, osWaitForever);
+#endif
   }
 }
 
@@ -41,5 +52,5 @@ static void app_main (void *argument) {
  * Application initialization
  *---------------------------------------------------------------------------*/
 void app_initialize (void) {
-  osThreadNew(app_main, NULL, &app_main_attr);
+  app_main_tid = osThreadNew(app_main, NULL, &app_main_attr);
 }

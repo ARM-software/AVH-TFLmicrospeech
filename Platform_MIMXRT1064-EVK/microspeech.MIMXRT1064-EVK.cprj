@@ -70,7 +70,7 @@
     <cxxflags add="-Os -Wno-documentation -Wno-documentation-unknown-command -Wno-license-management -Wno-missing-noreturn -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-nonportable-include-path -Wno-packed -Wno-parentheses-equality -Wno-reserved-id-macro -Wno-sign-conversion -Wno-unused-macros -ffunction-sections -fno-exceptions -fno-rtti -fshort-enums -fshort-wchar -funsigned-char -gdwarf-4 -std=c++11 -xc++" compiler="AC6"/>
     <asflags add="-gdwarf-3 -masm=auto" compiler="AC6"/>
     <includes>.;../VSI/audio/include;../micro_speech/src</includes>
-    <defines>CODEC_WM8960_ENABLE;SKIP_SYSCLK_INIT;XIP_BOOT_HEADER_DCD_ENABLE=1;XIP_BOOT_HEADER_ENABLE=1;XIP_EXTERNAL_FLASH=1</defines>
+    <defines>CODEC_WM8960_ENABLE;SKIP_SYSCLK_INIT;XIP_BOOT_HEADER_DCD_ENABLE=1;XIP_BOOT_HEADER_ENABLE=1;XIP_EXTERNAL_FLASH=1;__EVENT_DRIVEN</defines>
   </target>
 
   <components>

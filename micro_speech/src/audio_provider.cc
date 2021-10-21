@@ -34,6 +34,8 @@ int16_t g_audio_data[kMaxAudioSampleSize];
 int32_t g_latest_audio_timestamp = 0;
 }  // namespace
 
+extern "C" void AudioRxEvent (void);
+
 static void AudioEvent (uint32_t event) {
   if (!g_is_audio_ready) {
     g_is_audio_ready = true;
@@ -41,6 +43,9 @@ static void AudioEvent (uint32_t event) {
   }
   if (event & AUDIO_DRV_EVENT_RX_DATA) {
     g_latest_audio_timestamp += ((AUDIO_BLOCK_SIZE/2) * 1000) / kAudioSampleFrequency;
+#ifdef __EVENT_DRIVEN
+    AudioRxEvent();
+#endif
   }
 }
 

@@ -337,7 +337,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>CODEC_WM8960_ENABLE, SKIP_SYSCLK_INIT, XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE=1, XIP_BOOT_HEADER_DCD_ENABLE=1</Define>
+              <Define>__EVENT_DRIVEN CODEC_WM8960_ENABLE, SKIP_SYSCLK_INIT, XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE=1, XIP_BOOT_HEADER_DCD_ENABLE=1</Define>
               <Undefine></Undefine>
               <IncludePath>.;..\VSI\audio\include;..\micro_speech\src</IncludePath>
             </VariousControls>
