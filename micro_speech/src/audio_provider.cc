@@ -25,9 +25,6 @@ limitations under the License.
 namespace {
 bool    g_is_audio_initialized = false;
 bool    g_is_audio_ready = false;
-#ifdef __FVP_PY
-__attribute__((section(".ARM.__at_0x9FFF0000")))
-#endif
 __attribute__((aligned(4)))
 int16_t g_audio_buf [AUDIO_BUFFER_SIZE/2];
 int16_t g_audio_data[kMaxAudioSampleSize];
