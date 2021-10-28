@@ -33,7 +33,6 @@ jobs:
       - uses: Arm-Software/VHT-AMI@master
         with:
           vht_in: ./vht/
-          vht_in: ./VHT_suite_test
           instance_id: ${{ secrets.AWS_INSTANCE_ID }}
           aws_region: "eu-west-1"
           access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
