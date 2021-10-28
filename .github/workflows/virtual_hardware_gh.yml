@@ -22,6 +22,7 @@ jobs:
       - name: Prepare Build on EC2 instance
         run: |
            cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/  ${{ github.workspace }}/vht/
+           cp -r ${{ github.workspace }}/micro_speech/  ${{ github.workspace }}/vht/           
       - name: Prepare VHT Testsuite
         run: |
            #cp ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/microspeech.axf ${{ github.workspace }}/vht/elf/
