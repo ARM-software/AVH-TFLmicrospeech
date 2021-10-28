@@ -1,0 +1,21 @@
+suite:
+  name: "Tensorflow lite micro examples"
+  model: "VHT-Corstone-300"
+  configuration: ""
+  pre: ""
+  post: ""
+  
+  builds:
+   - "microspeech example":
+      shell: "cbuild.sh ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Example.cprj"
+      post: "cp ./Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/microspeech.axf ./elf/" 
+      
+
+  tests:
+   - "microspeech example":
+      executable: "./elf/microspeech.axf"
+      arguments: "-V ./VSI/audio/python -f ./fvp_config.txt --stat --cyclelimit 768000000"
+      pre: ""
+      post: ""
+      timeout: 20
+  

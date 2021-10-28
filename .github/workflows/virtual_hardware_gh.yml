@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions on CMSIS projects
+# See also https://community.arm.com/developer/tools-software/tools/b/tools-software-ides-blog/posts/infrastructure-for-continuous-integration-tests
+
+name: Arm Virtual Hardware example - github hosted - remote AWS via GH plugin
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# To allow you to run this workflow manually from the GitHub Actions tab add
+  workflow_dispatch:
+
+jobs:
+  ci_demonstration:
+    runs-on: self-hosted
+    env:
+      working-directory: ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Prepare Build on EC2 instance
+        run: |
+           cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/  ${{ github.workspace }}/vht/
+      - name: Prepare VHT Testsuite
+        run: |
+           #cp ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/microspeech.axf ${{ github.workspace }}/vht/elf/
+           cp -r ${{ github.workspace }}/VSI ${{ github.workspace }}/vht/VSI
+           cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/fvp_config.txt ${{ github.workspace }}/vht/
+     # Run test suite in Arm VHT
+      - uses: Arm-Software/VHT-AMI@master
+        with:
+          vht_in: ./vht/
+          vht_in: ./VHT_suite_test
+          instance_id: ${{ secrets.AWS_INSTANCE_ID }}
+          aws_region: "eu-west-1"
+          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret_access_key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
+          s3_bucket_name: gh-vht
+
+      - name: Fetch results from VHT Testsuite
+        run: |
+           tar tvf  ${{ github.workspace }}/vht/out.tar
+           tar xvzf  ${{ github.workspace }}/vht/out.tar
+           cat ./home/ubuntu/vhtwork/out/microspeech.axf.stdio
+
+
+
