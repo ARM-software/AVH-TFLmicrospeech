@@ -13,11 +13,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  ci_demonstration:
-    runs-on: self-hosted
-    env:
-      working-directory: ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/
-    steps:
+   ci_test:
+      runs-on: ubuntu-latest
+      steps:
       - name: Check out repository code
         uses: actions/checkout@v2
 
