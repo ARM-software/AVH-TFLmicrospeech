@@ -40,8 +40,8 @@ jobs:
 
       - name: Fetch results from VHT Testsuite
         run: |
-           tar tvf  ${{ github.workspace }}/vht/out.tar
-           tar xvzf  ${{ github.workspace }}/vht/out.tar
+           tar tvf  ${{ github.workspace }}/out.tar
+           tar xvzf  ${{ github.workspace }}/out.tar
            cat ./home/ubuntu/vhtwork/out/microspeech.axf.stdio
 
 
