@@ -8,7 +8,7 @@ suite:
   
   builds:
    - "microspeech example":
-      shell: "cbuild.sh ./microspeech.Example.cprj"
+      shell: "cp_install.sh ./packlist && cbuild.sh ./microspeech.Example.cprj"
       post: "" 
       
 
