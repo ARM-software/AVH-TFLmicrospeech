@@ -33,10 +33,10 @@ jobs:
         with:
           vht_in: ./vht/
           instance_id: ${{ secrets.AWS_INSTANCE_ID }}
-          aws_region: "eu-west-1"
+          aws_region: ${{ secrets.AWS_REGION }}
           access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_access_key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
-          s3_bucket_name: gh-vht
+          s3_bucket_name: ${{ secrets.AWS_BUCKET_NAME }}
 
       - name: Fetch results from VHT Testsuite
         run: |
