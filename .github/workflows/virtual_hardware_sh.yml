@@ -4,10 +4,10 @@
 name: Arm Virtual Hardware example - self-hosted (AWS) runner
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 # To allow you to run this workflow manually from the GitHub Actions tab add
   workflow_dispatch:
