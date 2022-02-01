@@ -29,7 +29,7 @@ jobs:
            cp -r ${{ github.workspace }}/VSI ${{ github.workspace }}/vht/VSI
            cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/fvp_config.txt ${{ github.workspace }}/vht/
      # Run test suite in Arm VHT
-      - uses: Arm-Software/VHT-AMI@master
+      - uses: Arm-Software/VHT-AMI@v1
         with:
           vht_in: ./vht/
           instance_id: ${{ secrets.AWS_INSTANCE_ID }}
