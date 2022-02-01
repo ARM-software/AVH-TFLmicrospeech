@@ -4,10 +4,10 @@
 name: Arm Virtual Hardware example - github hosted - remote AWS via GH plugin
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 # To allow you to run this workflow manually from the GitHub Actions tab add
   workflow_dispatch:
@@ -29,14 +29,16 @@ jobs:
            cp -r ${{ github.workspace }}/VSI ${{ github.workspace }}/vht/VSI
            cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/fvp_config.txt ${{ github.workspace }}/vht/
      # Run test suite in Arm VHT
-      - uses: Arm-Software/VHT-AMI@v1
+      - uses: ARM-Software/VHT-AMI@v2
+        id: vht
         with:
+          ec2_instance_id: ${{ secrets.AWS_INSTANCE_ID }}
+          s3_bucket_name: ${{ secrets.AWS_S3_BUCKET_NAME }}
           vht_in: ./vht/
-          instance_id: ${{ secrets.AWS_INSTANCE_ID }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret_access_key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
-          s3_bucket_name: ${{ secrets.AWS_BUCKET_NAME }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Fetch results from VHT Testsuite
         run: |
