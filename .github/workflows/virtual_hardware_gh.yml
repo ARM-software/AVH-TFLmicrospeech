@@ -33,7 +33,7 @@ jobs:
         id: vht
         with:
           ec2_instance_id: ${{ secrets.AWS_INSTANCE_ID }}
-          ec2_instance_type: t2.micro
+          ec2_instance_type: t2.large
           ec2_security_group_id: ${{ secrets.AWS_EC2_SECURITY_GROUP_ID }}
           iam_profile: ${{ secrets.AWS_IAM_PROFILE }}
           s3_bucket_name: ${{ secrets.AWS_S3_BUCKET_NAME }}
