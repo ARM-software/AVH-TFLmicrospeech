@@ -1,14 +1,14 @@
 suite:
   name: "Tensorflow lite micro examples"
-  model: "VHT-Corstone-300"
+  model: "VHT_Corstone_SSE-300_Ethos-U55"
   configuration: ""
   working_dir: "/home/ubuntu/vhtwork/Platform_FVP_Corstone_SSE-300_Ethos-U55"
   pre: ""
   post: ""
-  
+
   builds:
    - "microspeech example":
-      shell: "cp_install.sh ./packlist && cbuild.sh ./microspeech.Example.cprj"
+      shell: "chmod +x ./packlist.sh && ./packlist.sh && cbuild.sh ./microspeech.Example.cprj"
       post: "" 
       
 
