@@ -39,7 +39,7 @@ jobs:
           s3_bucket_name: ${{ secrets.AWS_S3_BUCKET_NAME }}
           subnet_id: ${{ secrets.AWS_SUBNET_ID }}
           terminate_ec2_instance: 'true'
-          vht_ami_version: '1.0.0'
+          vht_ami_version: '1.1.0'
           vht_in: ./vht/
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
