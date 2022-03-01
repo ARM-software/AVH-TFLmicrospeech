@@ -25,7 +25,7 @@ jobs:
         run: echo "${{ github.repository }} has been cloned."
 
       - name: Build the micro_speech example
-        run: cbuild.sh microspeech.Example.cprj
+        run: cbuild.sh microspeech.Example.cprj --quiet
         working-directory: ${{env.working-directory}}
 
       - name: Run the micro_speech example
