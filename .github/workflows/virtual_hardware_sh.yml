@@ -24,10 +24,6 @@ jobs:
       - name: What has been cloned?
         run: echo "${{ github.repository }} has been cloned."
 
-      - name: Get dependencies
-        run: cp_install.sh packlist
-        working-directory: ${{env.working-directory}}
-
       - name: Build the micro_speech example
         run: cbuild.sh microspeech.Example.cprj
         working-directory: ${{env.working-directory}}
