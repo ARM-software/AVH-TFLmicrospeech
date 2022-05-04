@@ -1,56 +1,44 @@
 # This is a basic workflow to help you get started with Actions on CMSIS projects
 # See also https://community.arm.com/developer/tools-software/tools/b/tools-software-ides-blog/posts/infrastructure-for-continuous-integration-tests
 
-name: Arm Virtual Hardware example - github hosted - remote AWS via GH plugin
+name: Arm Virtual Hardware example - github hosted - remote AWS via avhclient 
 
 on:
 #  push:
 #    branches: [ main ]
 #  pull_request:
 #    branches: [ main ]
-
-# To allow you to run this workflow manually from the GitHub Actions tab add
+# To allow you to run this workflow manually 
   workflow_dispatch:
 
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+  AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+  AWS_IAM_PROFILE: ${{ secrets.AWS_IAM_PROFILE }}
+  AWS_SECURITY_GROUP_ID: ${{ secrets.AWS_SECURITY_GROUP_ID }}
+  AWS_SUBNET_ID: ${{ secrets.AWS_SUBNET_ID }}
+
+
 jobs:
-   ci_test:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-
-      - name: Prepare Build on EC2 instance
-        run: |
-           cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/  ${{ github.workspace }}/vht/
-           cp -r ${{ github.workspace }}/micro_speech/  ${{ github.workspace }}/vht/           
-      - name: Prepare VHT Testsuite
-        run: |
-           #cp ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/Objects/microspeech.axf ${{ github.workspace }}/vht/elf/
-           cp -r ${{ github.workspace }}/VSI ${{ github.workspace }}/vht/VSI
-           cp -r ${{ github.workspace }}/Platform_FVP_Corstone_SSE-300_Ethos-U55/fvp_config.txt ${{ github.workspace }}/vht/
-     # Run test suite in Arm VHT
-      - uses: ARM-Software/VHT-AMI@v2
-        id: vht
+  cortex_m_generic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
         with:
-          ec2_instance_id: ${{ secrets.AWS_INSTANCE_ID }}
-          ec2_instance_type: t2.large
-          ec2_security_group_id: ${{ secrets.AWS_EC2_SECURITY_GROUP_ID }}
-          iam_profile: ${{ secrets.AWS_IAM_PROFILE }}
-          s3_bucket_name: ${{ secrets.AWS_S3_BUCKET_NAME }}
-          subnet_id: ${{ secrets.AWS_SUBNET_ID }}
-          terminate_ec2_instance: 'true'
-          vht_ami_version: '1.1.0'
-          vht_in: ./vht/
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-
-      - name: Fetch results from VHT Testsuite
+          python-version: '3.10'
+      - name: Install AVH Client for Python
         run: |
-           tar tvf  ${{ github.workspace }}/out.tar
-           tar xvzf  ${{ github.workspace }}/out.tar
-           cat ./home/ubuntu/vhtwork/out/microspeech.axf.stdio
+          pip install git+https://github.com/ARM-software/avhclient.git@master
+      - name: Execute test suite on Arm Virtual Hardware at AWS
+        run: |
+          avhclient -b aws execute --specfile ./Platform_FVP_Corstone_SSE-300_Ethos-U55/avh.yml
+      - name: Fetch results from Arm Virtual Hardware
+        run: |
+           cat ./microspeech.log
 
 
 
