@@ -35,7 +35,7 @@ jobs:
           pip install git+https://github.com/ARM-software/avhclient.git@master
       - name: Execute test suite on Arm Virtual Hardware at AWS
         run: |
-          avhclient -b aws execute --specfile ./Platform_FVP_Corstone_SSE-300_Ethos-U55/avh.yml
+          avhclient -b aws execute --specfile ./avh.yml
       - name: Fetch results from Arm Virtual Hardware
         run: |
            cat ./microspeech.log
