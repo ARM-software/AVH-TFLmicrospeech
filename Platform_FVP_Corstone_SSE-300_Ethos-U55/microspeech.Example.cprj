@@ -9,9 +9,9 @@
   </info>
 
   <packages>
-    <package name="CMSIS" vendor="ARM"/>
+    <package name="CMSIS" vendor="ARM" version="5.8.0:5.8.0"/>
     <package name="V2M_MPS3_SSE_300_BSP" vendor="ARM"/>
-    <package name="flatbuffers" vendor="tensorflow"/>
+    <package name="flatbuffers" vendor="tensorflow" version="0.4.0:0:0.4.0/>
     <package name="gemmlowp" vendor="tensorflow"/>
     <package name="kissfft" vendor="tensorflow"/>
     <package name="ruy" vendor="tensorflow"/>
