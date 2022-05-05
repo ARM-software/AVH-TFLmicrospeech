@@ -1,0 +1,18 @@
+
+name: "Build and run microspeech on Corstone SSE-300 VHT platform"
+workdir: ./
+backend:
+  aws:
+    ami-version: ~=1.1
+    instance-type: t2.xlarge
+upload:
+  - micro_speech/**/*
+  - Platform_FVP_Corstone_SSE-300_Ethos-U55/**/*
+  - VSI/**/*
+steps:
+  - run: |
+      cd Platform_FVP_Corstone_SSE-300_Ethos-U55
+      cbuild.sh ./microspeech.Example.cprj
+      VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt --stat --simlimit 24 ./Objects/microspeech.axf > ./microspeech.log
+download:
+  - Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.log
