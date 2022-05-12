@@ -3,7 +3,7 @@
 
 The program analyzes an audio input with a voice recognition model that can detect 2 keywords - **yes** and **no**. The recognized keywords are then printed into a serial interface. The voice recognition model is implemented using [TensorFlow Lite for Microcontrollers](https://www.tensorflow.org/lite/microcontrollers). 
 
-The example project can be executed on Arm Fixed Virtual Platform (FVP) as well as on hardware targets.
+The example project can be executed on Arm Virtual Hardware (AVH) as well as on physical hardware targets.
 
 ## Structure
 
@@ -12,7 +12,7 @@ The repository is organized as follows:
 Folder                                                | Description
 :-----------------------------------------------------|:--------------------
 `./micro_speech/`                                     | Contains the voice recognition model that is used by all targets. This part is similar to the original TF-Lite for Microcontrollers example, with just minor modifications.<br>TensorFlow calculation kernel is provided separately via corresponding software packs listed in Prerequisites.
-`./Platform_FVP_Corstone_SSE-300_Ethos-U55/`          | Project files specific for Corstone SSE-300 FVP target.
+`./Platform_FVP_Corstone_SSE-300_Ethos-U55/`          | Project files specific for Corstone SSE-300 AVH target.
 `./Platform_IMXRT1050-EVKB/`                          | Project files specific for IMXRT1050-EVKB target.
 `./Platform_MIMXRT1064-EVK/`                          | Project files specific for MIMXRT1064-EVK target.
 `./VSI/`                                              | Implementation of Audio Streaming Interface for FVP targets with [**Virtual Streaming Interface (VSI)**](https://arm-software.github.io/AVH/main/simulation/html/group__arm__vsi.html).
@@ -33,15 +33,15 @@ Folder                                                | Description
 
 Note that CMSIS software packs used in the specific project will be requested and installed automatically when using Keil MDK or CMSIS-Build.
 
-## Micro speech for FVP (Fixed Virtual Platform) for Corstone SSE-300 with Ethos-U55
+## Micro speech for AVH (Fast Model) for Corstone SSE-300 with Ethos-U55
 
 Project directory: `./Platform_FVP_Corstone_SSE-300_Ethos-U55/`
 
 This example executes the program on Corstone SSE-300 with Ethos-U55 Fixed Virtual Platforms (FVPs).
 
 Example project has the following targets:
- - `Example`: target runs on FVP **with [**Virtual Streaming Interface (VSI)**](https://arm-software.github.io/AVH/main/simulation/html/group__arm__vsi.html)**
-    - Uses special Corstone SSE-300 Ethos-U55 FVP with VSI support<br>
+ - `Example`: target runs on AVHP **with [**Virtual Streaming Interface (VSI)**](https://arm-software.github.io/AVH/main/simulation/html/group__arm__vsi.html)**
+    - Uses the [VHT_Corstone_SSE-300_Ethos-U55](https://arm-software.github.io/AVH/main/simulation/html/Using.html) with VSI support<br>
       It is required to install the model executable and binaries in order to run this example.<br/>
       Expected installation directory on Windows: `C:\Program Files\Arm\VHT\models\Win64_VC2019`<br/>
       If installed in a different directory then this needs to be reflected:
