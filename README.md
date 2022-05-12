@@ -20,16 +20,12 @@ Folder                                                | Description
 ## Prerequisites
 
 **Toolchain**
-- IDE (Windows only): [Keil Microcontroller Development Kit (MDK)](https://developer.arm.com/tools-and-software/embedded/keil-mdk)
-- alternatively, [CMSIS-Build](https://github.com/ARM-software/CMSIS_5/releases/download/5.8.0/cbuild_install.0.10.3.sh) command-line building tools that are part of the [CMSIS_5 release](https://github.com/ARM-software/CMSIS_5/releases)
+- IDE (Windows only): [Keil MDK - Professional Edition - V5.37 or higher](https://developer.arm.com/tools-and-software/embedded/keil-mdk)
+- alternatively, [CMSIS-Toolbox](https://github.com/Open-CMSIS-Pack/devtools/releases) command-line building tools
 
-**Specific for FVP targets**
-- for targets with VSI support
+**Arm Virtual Hardware - Corstone and Cortex-M CPUs** available via AWS Marketplace 
+- For targets with VSI support
   - [Python 3.9](https://www.python.org/downloads/)
-  - [Fast Models](https://developer.arm.com/tools-and-software/simulation-models/fast-models) 11.16 (only license gets verified by the FVP)
-  - FVP model for Corstone-300 MPS3 with VSI support
-- for targets without VSI support
-  - [Ecosystem FVP for Corstone-300 MPS3](https://developer.arm.com/tools-and-software/open-source-software/arm-platforms-software/arm-ecosystem-fvps)
 
 **Specific for HW targets**
 - [NXP MIMXRT1050-EVKB](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1064-evk-i-mx-rt1064-evaluation-kit:MIMXRT1064-EVK) board, or
