@@ -116,7 +116,7 @@ Execute the program in following steps:
 
 ## TensorFlow-Lite kernel variants
 
-The micro speech example uses [**tensorflow-lite-micro**]() pack that contains **Machine Learning** software component implementing among others the universal kernel for executing TensorFlow ML operations independent from the actual load type (audio, video, or others).
+The micro speech example uses [**tensorflow-lite-micro**](https://github.com/MDK-Packs/tensorflow-pack) pack that contains **Machine Learning** software component implementing among others the universal kernel for executing TensorFlow ML operations independent from the actual load type (audio, video, or others).
 
 Implementation of these kernel operations is available in several variants optimized for Arm targets. When using the uVision project the variant can be selected in **Manage Run-Time Environment** window as shown on the picture below.
 
