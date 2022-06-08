@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>SSE-300-MPS3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.2.0</PackID>
+          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.3.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x38000000,0x00200000) IRAM2(0x28000000,0x00200000) IROM(0x10000000,0x00040000) IROM2(0x00000000,0x00040000) XRAM(0x38200000,0x00200000) XRAM2(0x28200000,0x00200000) XRAM3(0x31000000,0x00040000) CPUTYPE("Cortex-M55") FPU3(SFPU) DSP TZ CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3835,30 +3835,30 @@
       </package>
       <package name="ARM_Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="1.7.2">
         <targetInfos>
-          <targetInfo name="Example"/>
+          <targetInfo name="Example" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02">
+      <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
         <targetInfos>
           <targetInfo name="Example" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02">
+      <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
         <targetInfos>
           <targetInfo name="Example" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02">
+      <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
         <targetInfos>
           <targetInfo name="Example" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02">
+      <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
         <targetInfos>
           <targetInfo name="Example" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02">
+      <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
         <targetInfos>
           <targetInfo name="Example" versionMatchMode="fixed"/>
         </targetInfos>
@@ -4172,8 +4172,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.02">
-        <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+      <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
+        <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4181,8 +4181,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.02">
-        <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+      <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
+        <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4190,8 +4190,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Processing" Cgroup="Math" Csub="kissfft" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.02">
-        <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+      <component Cclass="Data Processing" Cgroup="Math" Csub="kissfft" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
+        <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4199,8 +4199,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Processing" Cgroup="Math" Csub="ruy" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.02">
-        <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+      <component Cclass="Data Processing" Cgroup="Math" Csub="ruy" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
+        <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4208,8 +4208,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.02">
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2">
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4217,8 +4217,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="CMSIS-NN" Cvendor="tensorflow" Cversion="1.22.02" condition="CMSIS-NN">
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="CMSIS-NN" Cvendor="tensorflow" Cversion="1.22.2" condition="CMSIS-NN">
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4384,8 +4384,8 @@
       </file>
       <file attr="config" category="sourceCpp" name="tensorflow\lite\micro\cortex_m_generic\debug_log.cpp" version="1.22.02">
         <instance index="0">RTE\Machine_Learning\debug_log.cpp</instance>
-        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.02"/>
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2"/>
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4401,8 +4401,8 @@
       </file>
       <file attr="config" category="sourceCpp" name="tensorflow\lite\micro\cortex_m_generic\micro_time.cpp" version="1.22.02">
         <instance index="0">RTE\Machine_Learning\micro_time.cpp</instance>
-        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.02"/>
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2"/>
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4418,8 +4418,8 @@
       </file>
       <file attr="config" category="sourceCpp" name="tensorflow\lite\micro\system_setup.cpp" version="1.22.02">
         <instance index="0">RTE\Machine_Learning\system_setup.cpp</instance>
-        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.02"/>
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.02/" vendor="tensorflow" version="1.22.02"/>
+        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2"/>
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
