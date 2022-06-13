@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>SSE-300-MPS3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.3.0</PackID>
+          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.2.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x38000000,0x00200000) IRAM2(0x28000000,0x00200000) IROM(0x10000000,0x00040000) IROM2(0x00000000,0x00040000) XRAM(0x38200000,0x00200000) XRAM2(0x28200000,0x00200000) XRAM3(0x31000000,0x00040000) CPUTYPE("Cortex-M55") FPU3(SFPU) DSP TZ CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -620,6 +620,11 @@
               <FileType>8</FileType>
               <FilePath>..\micro_speech\src\recognize_commands.cc</FilePath>
             </File>
+            <File>
+              <FileName>arm_nn_softmax_common_s8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\micro_speech\src\arm_nn_softmax_common_s8.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -937,13 +942,13 @@
       <TargetName>Example Test</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>SSE-300-MPS3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.3.0</PackID>
+          <PackID>ARM.V2M_MPS3_SSE_300_BSP.1.2.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x38000000,0x00200000) IRAM2(0x28000000,0x00200000) IROM(0x10000000,0x00040000) IROM2(0x00000000,0x00040000) XRAM(0x38200000,0x00200000) XRAM2(0x28200000,0x00200000) XRAM3(0x31000000,0x00040000) CPUTYPE("Cortex-M55") FPU3(SFPU) DSP TZ CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1700,6 +1705,11 @@
               <FileType>8</FileType>
               <FilePath>..\micro_speech\src\recognize_commands.cc</FilePath>
             </File>
+            <File>
+              <FileName>arm_nn_softmax_common_s8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\micro_speech\src\arm_nn_softmax_common_s8.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1966,7 +1976,7 @@
       <TargetName>Audio Provider Mock</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -2677,6 +2687,11 @@
               <FileName>recognize_commands.cc</FileName>
               <FileType>8</FileType>
               <FilePath>..\micro_speech\src\recognize_commands.cc</FilePath>
+            </File>
+            <File>
+              <FileName>arm_nn_softmax_common_s8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\micro_speech\src\arm_nn_softmax_common_s8.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3707,6 +3722,11 @@
               <FileType>8</FileType>
               <FilePath>..\micro_speech\src\recognize_commands.cc</FilePath>
             </File>
+            <File>
+              <FileName>arm_nn_softmax_common_s8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\micro_speech\src\arm_nn_softmax_common_s8.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3823,44 +3843,60 @@
       <filter>
         <targetInfos/>
       </filter>
-      <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0">
+      <package name="CMSIS" schemaVersion="1.7.7" url="http://www.keil.com/pack/" vendor="ARM" version="5.9.0">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
       <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
       <package name="ARM_Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="1.7.2">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
+      <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
+      <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
+      <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
+      <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2">
+      <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4">
         <targetInfos>
+          <targetInfo name="Audio Provider Mock" versionMatchMode="fixed"/>
           <targetInfo name="Example" versionMatchMode="fixed"/>
+          <targetInfo name="Example Test" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
     </packages>
@@ -3897,15 +3933,15 @@
       <component Cclass="CMSIS Driver" Cgroup="MPC" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 MPC">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="CMSIS Driver" Cgroup="MPC" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 MPC">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="CMSIS Driver" Cgroup="PPC" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 PPC">
@@ -3935,17 +3971,12 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.5.0" condition="ARMv6_7_8-M Device">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
-        <targetInfos>
-          <targetInfo name="Example"/>
-        </targetInfos>
-      </component>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.6.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.7.7" url="http://www.keil.com/pack/" vendor="ARM" version="5.9.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
+          <targetInfo name="Example"/>
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
@@ -3954,19 +3985,8 @@
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
+          <targetInfo name="Example"/>
           <targetInfo name="Example Test"/>
-        </targetInfos>
-      </component>
-      <component Cclass="CMSIS" Cgroup="DSP" Cvariant="Source" Cvendor="ARM" Cversion="1.9.0-dev" condition="CMSIS DSP">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
-        <targetInfos>
-          <targetInfo name="Example"/>
-        </targetInfos>
-      </component>
-      <component Cclass="CMSIS" Cgroup="NN Lib" Cvendor="ARM" Cversion="3.0.0" condition="CMSIS NN">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
-        <targetInfos>
-          <targetInfo name="Example"/>
         </targetInfos>
       </component>
       <component Cclass="CMSIS" Cgroup="NN Lib" Cvendor="ARM" Cversion="3.1.0" condition="CMSIS NN">
@@ -3974,13 +3994,8 @@
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
-        </targetInfos>
-      </component>
-      <component Capiversion="2.1.3" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.5.3" condition="RTOS2 RTX5">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
-        <targetInfos>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Capiversion="2.1.3" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.5.4" condition="RTOS2 RTX5">
@@ -3988,133 +4003,134 @@
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
+          <targetInfo name="Example"/>
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="GPIO" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="GPIO" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="IO" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="IO" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="MPC" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="MPC" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="PPC" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="PPC" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="SPI" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="SPI" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="SysCounter" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="SysCounter" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="SysTimer" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="SysTimer" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="Timeout" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Systimer Syscounter">
@@ -4129,29 +4145,29 @@
       <component Cclass="Native Driver" Cgroup="UART" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="UART" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="Watch Dog" Cvendor="ARM" Cversion="1.0.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
+          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Example"/>
+          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cclass="Native Driver" Cgroup="Watch Dog" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device">
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
       <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="Keil" Cversion="1.5.1" condition="Cortex-M Device">
@@ -4172,8 +4188,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
-        <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+      <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.5-rc4">
+        <package name="flatbuffers" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4181,8 +4197,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
-        <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+      <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.5-rc4">
+        <package name="gemmlowp" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4190,8 +4206,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Processing" Cgroup="Math" Csub="kissfft" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
-        <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+      <component Cclass="Data Processing" Cgroup="Math" Csub="kissfft" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.5-rc4">
+        <package name="kissfft" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4199,8 +4215,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Data Processing" Cgroup="Math" Csub="ruy" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.2">
-        <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+      <component Cclass="Data Processing" Cgroup="Math" Csub="ruy" Cvariant="tensorflow" Cvendor="tensorflow" Cversion="1.22.5-rc4">
+        <package name="ruy" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4208,8 +4224,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2">
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.5-rc4">
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4217,8 +4233,8 @@
           <targetInfo name="Example Test"/>
         </targetInfos>
       </component>
-      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="CMSIS-NN" Cvendor="tensorflow" Cversion="1.22.2" condition="CMSIS-NN">
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+      <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="CMSIS-NN" Cvendor="tensorflow" Cversion="1.22.5-rc4" condition="CMSIS-NN">
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4263,8 +4279,8 @@
       </file>
       <file attr="config" category="header" name="CMSIS_Driver\Config\RTE_Device.h" version="1.1.0">
         <instance index="0">RTE\Device\SSE-300-MPS3\RTE_Device.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4274,8 +4290,8 @@
       </file>
       <file attr="config" category="header" name="CMSIS_Driver\Config\Baremetal\cmsis_driver_config.h" version="1.1.1">
         <instance index="0">RTE\Device\SSE-300-MPS3\cmsis_driver_config.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4285,8 +4301,8 @@
       </file>
       <file attr="config" category="header" name="Device\Config\Baremetal\device_cfg.h" version="1.1.2">
         <instance index="0">RTE\Device\SSE-300-MPS3\device_cfg.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4296,8 +4312,8 @@
       </file>
       <file attr="config" category="linkerScript" name="Device\Source\armclang\fvp_sse300_mps3_s.sct" version="1.1.0">
         <instance index="0">RTE\Device\SSE-300-MPS3\fvp_sse300_mps3_s.sct</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4307,8 +4323,8 @@
       </file>
       <file attr="config" category="header" name="Board\Platform\platform_base_address.h" version="1.1.2">
         <instance index="0">RTE\Device\SSE-300-MPS3\platform_base_address.h</instance>
-        <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4318,8 +4334,8 @@
       </file>
       <file attr="config" category="header" name="Device\Include\region_defs.h" version="1.0.0">
         <instance index="0">RTE\Device\SSE-300-MPS3\region_defs.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4329,8 +4345,8 @@
       </file>
       <file attr="config" category="header" name="Device\Include\region_limits.h" version="1.0.0">
         <instance index="0">RTE\Device\SSE-300-MPS3\region_limits.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4340,8 +4356,8 @@
       </file>
       <file attr="config" category="source" name="Device\Source\startup_fvp_sse300_mps3.c" version="1.1.1">
         <instance index="0">RTE\Device\SSE-300-MPS3\startup_fvp_sse300_mps3.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4351,8 +4367,8 @@
       </file>
       <file attr="config" category="source" name="Device\Source\system_SSE300MPS3.c" version="1.1.1">
         <instance index="0">RTE\Device\SSE-300-MPS3\system_SSE300MPS3.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
-        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+        <component Cclass="Device" Cgroup="Definition" Cvendor="ARM" Cversion="1.1.0" condition="SSE-300-MPS3 Device"/>
+        <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4365,9 +4381,7 @@
         <component Cclass="Device" Cgroup="Startup" Cvariant="Baremetal" Cvendor="ARM" Cversion="1.2.0" condition="SSE-300-MPS3 Device"/>
         <package name="V2M_MPS3_SSE_300_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
         <targetInfos>
-          <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
-          <targetInfo name="Example Test"/>
         </targetInfos>
       </file>
       <file attr="config" category="source" name="Device\Source\system_core_init.c" version="1.0.0">
@@ -4384,8 +4398,8 @@
       </file>
       <file attr="config" category="sourceCpp" name="tensorflow\lite\micro\cortex_m_generic\debug_log.cpp" version="1.22.02">
         <instance index="0">RTE\Machine_Learning\debug_log.cpp</instance>
-        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2"/>
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.5-rc4"/>
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4401,8 +4415,8 @@
       </file>
       <file attr="config" category="sourceCpp" name="tensorflow\lite\micro\cortex_m_generic\micro_time.cpp" version="1.22.02">
         <instance index="0">RTE\Machine_Learning\micro_time.cpp</instance>
-        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2"/>
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.5-rc4"/>
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
@@ -4418,8 +4432,8 @@
       </file>
       <file attr="config" category="sourceCpp" name="tensorflow\lite\micro\system_setup.cpp" version="1.22.02">
         <instance index="0">RTE\Machine_Learning\system_setup.cpp</instance>
-        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.2"/>
-        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.2/" vendor="tensorflow" version="1.22.2"/>
+        <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow" Cversion="1.22.5-rc4"/>
+        <package name="tensorflow-lite-micro" schemaVersion="1.6" url="https://github.com/MDK-Packs/tensorflow-pack/releases/download/1.22.5-rc4/" vendor="tensorflow" version="1.22.5-rc4"/>
         <targetInfos>
           <targetInfo name="Audio Provider Mock"/>
           <targetInfo name="Audio Provider Mock Test"/>
