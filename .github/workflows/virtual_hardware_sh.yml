@@ -25,7 +25,7 @@ jobs:
         run: echo "${{ github.repository }} has been cloned."
 
       - name: Get dependencies
-        run: cp_install.sh packlist
+        run: cpackget index https://www.keil.com/pack/index.pidx -f
         working-directory: ${{env.working-directory}}
 
       - name: Build the micro_speech example
