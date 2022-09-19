@@ -16,4 +16,4 @@ steps:
       VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt -C cpu0.semihosting-enable=1 --stat --simlimit 24 ./Objects/microspeech.axf > ./microspeech.log
 download:
   - Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.log
-  - Platform_FVP_Corstone_SSE-300_Ethos-U55/Eventrecorder.log
+  - Platform_FVP_Corstone_SSE-300_Ethos-U55/EventRecorder.log
