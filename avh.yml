@@ -13,6 +13,7 @@ steps:
   - run: |
       cd Platform_FVP_Corstone_SSE-300_Ethos-U55
       cbuild --packs ./microspeech.Example.cprj
-      VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt --stat --simlimit 24 ./Objects/microspeech.axf > ./microspeech.log
+      VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt -C cpu0.semihosting-enable=1 --stat --simlimit 24 ./Objects/microspeech.axf > ./microspeech.log
 download:
   - Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.log
+  - Platform_FVP_Corstone_SSE-300_Ethos-U55/Eventrecorder.log

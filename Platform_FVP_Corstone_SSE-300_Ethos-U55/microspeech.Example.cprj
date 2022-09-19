@@ -78,7 +78,7 @@
     <component Cclass="Native Driver" Cgroup="Timeout" Cvendor="ARM"/>
     <component Cclass="Native Driver" Cgroup="UART" Cvendor="ARM"/>
     <component Cclass="Native Driver" Cgroup="Watch Dog" Cvendor="ARM"/>
-    <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="Keil">
+    <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="Semihosting" Cvendor="Keil">
       <file attr="config" category="header" name="Config/EventRecorderConf.h" version="1.1.0"/>
     </component>
     <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDOUT" Cvariant="User" Cvendor="Keil"/>
