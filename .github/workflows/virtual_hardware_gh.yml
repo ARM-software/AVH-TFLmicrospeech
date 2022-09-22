@@ -51,4 +51,6 @@ jobs:
            tar -xvf eventlist-linux64.tar.gz 
            chmod +x eventlist-linux64/eventlist
            eventlist-linux64/eventlist -s ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Reference.EventRecorder.log 
+           eventlist-linux64/eventlist -s ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.SIMD.EventRecorder.log 
+           eventlist-linux64/eventlist -s ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Helium.EventRecorder.log 
           
