@@ -45,6 +45,8 @@ jobs:
       - name: Fetch results from Arm Virtual Hardware
         run: |
            cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Reference.log
+           cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.SIMD.log
+           cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Helium.log
       - name: Decode EventRecorder logs
         run: |
            wget https://github.com/ARM-software/CMSIS-View/releases/download/tools%2Feventlist%2F1.0.10/eventlist-linux64.tar.gz
