@@ -19,7 +19,7 @@ steps:
       VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt -C cpu0.semihosting-enable=1 --stat --simlimit 24 ./Objects/microspeech.SIMD.axf > ./microspeech.SIMD.log
       mv EventRecorder.log ./microspeech.SIMD.EventRecorder.log
       cbuild --packs ./microspeech.Example.Helium.cprj
-      VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt -C cpu0.semihosting-enable=1 --stat --simlimit 24 ./Objects/microspeech.Helium.axf > ./microspeech.Helium.log
+      VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt -C cpu0.semihosting-enable=1 --stat --simlimit 80 ./Objects/microspeech.Helium.axf > ./microspeech.Helium.log
       mv EventRecorder.log ./microspeech.Helium.EventRecorder.log     
 download:
   - Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Reference.log
