@@ -44,4 +44,15 @@ jobs:
           avhclient -b aws execute --specfile ./avh.yml
       - name: Fetch results from Arm Virtual Hardware
         run: |
-           cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.log
+           cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Reference.log
+           cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.SIMD.log
+           cat ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Helium.log
+      - name: Decode EventRecorder logs
+        run: |
+           wget https://github.com/ARM-software/CMSIS-View/releases/download/tools%2Feventlist%2F1.0.10/eventlist-linux64.tar.gz
+           tar -xvf eventlist-linux64.tar.gz 
+           chmod +x eventlist-linux64/eventlist
+           eventlist-linux64/eventlist -s ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Reference.EventRecorder.log 
+           eventlist-linux64/eventlist -s ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.SIMD.EventRecorder.log 
+           eventlist-linux64/eventlist -s ./Platform_FVP_Corstone_SSE-300_Ethos-U55/microspeech.Helium.EventRecorder.log 
+          
