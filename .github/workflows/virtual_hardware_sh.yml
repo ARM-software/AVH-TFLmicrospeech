@@ -24,14 +24,10 @@ jobs:
       - name: What has been cloned?
         run: echo "${{ github.repository }} has been cloned."
 
-      - name: Get dependencies
-        run: cpackget index https://www.keil.com/pack/index.pidx -f
-        working-directory: ${{env.working-directory}}
-
       - name: Build the micro_speech example
-        run: cbuild.sh microspeech.Example.cprj
+        run: cbuild -p microspeech.Example.Helium.cprj
         working-directory: ${{env.working-directory}}
 
       - name: Run the micro_speech example
-        run: ./run_example.sh
+        run: VHT_Corstone_SSE-300_Ethos-U55 -V ../VSI/audio/python -f ./fvp_config.txt -C cpu0.semihosting-enable=1 --stat --simlimit 40 ./Objects/microspeech.Helium.axf
         working-directory: ${{env.working-directory}}
