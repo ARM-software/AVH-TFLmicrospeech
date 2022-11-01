@@ -1,3 +1,4 @@
+⚠️ This project is forked from [ARM Software/AVH-TFLmicrospeech](https://github.com/ARM-software/AVH-TFLmicrospeech) GitHub repository for personal usage. For more details, please visit ARM Software GitHub org.
 
 # Micro speech example for TensorFlow Lite
 
