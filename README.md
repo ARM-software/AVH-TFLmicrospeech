@@ -20,7 +20,7 @@ Folder                                                | Description
 ## Prerequisites
 
 **Toolchain**
-- IDE (Windows only): [Keil MDK - Professional Edition - V5.37 or higher](https://developer.arm.com/tools-and-software/embedded/keil-mdk)
+- IDE (Windows only): [Keil MDK - Professional Edition - V5.38 or higher](https://developer.arm.com/tools-and-software/embedded/keil-mdk)
 - alternatively, [CMSIS-Toolbox](https://github.com/Open-CMSIS-Pack/devtools/releases) command-line building tools
 
 **Arm Virtual Hardware - Corstone and Cortex-M CPUs** available via AWS Marketplace 
@@ -40,13 +40,10 @@ Project directory: `./Platform_FVP_Corstone_SSE-300_Ethos-U55/`
 This example executes the program on Corstone SSE-300 with Ethos-U55 Fixed Virtual Platforms (FVPs).
 
 Example project has the following targets:
- - `Example`: target runs on AVHP **with [**Virtual Streaming Interface (VSI)**](https://arm-software.github.io/AVH/main/simulation/html/group__arm__vsi.html)**
+ - `Example`: target runs on AVH **with [**Virtual Streaming Interface (VSI)**](https://arm-software.github.io/AVH/main/simulation/html/group__arm__vsi.html)**
     - Uses the [VHT_Corstone_SSE-300_Ethos-U55](https://arm-software.github.io/AVH/main/simulation/html/Using.html) with VSI support<br>
-      It is required to install the model executable and binaries in order to run this example.<br/>
-      Expected installation directory on Windows: `C:\Program Files\Arm\VHT\models\Win64_VC2019`<br/>
-      If installed in a different directory then this needs to be reflected:
-        - in uVision project (Options for Target - Debug - Settings for Models Armv8-M Debugger) when running with MDK or
-        - in script `run_example.cmd` when running standalone
+      It is required to install the model executable and binaries in order to run this example. 
+      The directory with executables needs to be added to the system path.<br/>
     - Audio test data is provided by Python script `./VSI/audio/python/arm_vsi0.py` from WAVE file `test.wav` which contains keywords 'Yes' and 'No' alternating three times.
     - Open the example with Keil MDK (Windows only) using the uVision project `microspeech.uvprojx` and build it for target `Example`.
     - Alternatively compile with CMSIS-Build using `microspeech.Example.cprj` project.
@@ -61,12 +58,8 @@ Example project has the following targets:
       Heard no (148) @21600ms
       ```
  - `Example Test`: internal test for Example target
- - `Audio Provider Mock`: runs on FVP **without VSI support**
-    - Uses [**ecosystem FVP for Corstone-300 MPS3**](https://developer.arm.com/tools-and-software/open-source-software/arm-platforms-software/arm-ecosystem-fvps).<br>
-      Expected installation directory on Windows `C:\Program Files\ARM\FVP_Corstone_SSE-300_Ethos-U55\models\Win64_VC2017\FVP_Corstone_SSE-300_Ethos-U55.exe`<br>
-      If installed in a different directory then this needs to be reflected:
-        - in uVision project (Options for Target - Debug - Settings for Models Armv8-M Debugger) when running with MDK or
-        - in script run_example.cmd when running standalone
+ - `Audio Provider Mock`: runs on AVH 
+    - Uses the [VHT_Corstone_SSE-300_Ethos-U55](https://arm-software.github.io/AVH/main/simulation/html/Using.html) without using VSI<br>
     - Audio test data is embedded in the test code and contains keywords 'Yes' and 'No' alternating indefinitely.
     - Open the example with Keil MDK (Windows only) using the uVision project `microspeech.uvprojx` and build it for target `Audio Provider Mock`.
     - Alternatively compile with CMSIS-Build using `microspeech.Audio_Provider_Mock.cprj` project.
