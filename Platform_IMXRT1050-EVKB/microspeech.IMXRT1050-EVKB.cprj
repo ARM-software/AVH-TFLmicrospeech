@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <cprj schemaVersion="1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CPRJ.xsd">
 
-  <created timestamp="2021-09-23T17:02:16" tool="uVision V5.36.0.0"/>
+  <created timestamp="2023-03-16T11:04:23" tool="uVision V5.38.0.0"/>
 
   <info>
     <name>Platform</name>
@@ -9,7 +9,7 @@
   </info>
 
   <layers>
-    <layer name="App">
+    <layer name="App" title="Platform">
       <description>Platform is a simple CMSIS RTOS2 example skeleton</description>
       <category>Platform</category>
       <license>Apache 2.0</license>
@@ -17,7 +17,7 @@
         <consumes id="RTOS2"/>
       </interfaces>
     </layer>
-    <layer name="Board">
+    <layer name="Board" title="IMXRT1050-EVKB">
       <description>Board setup with interfaces</description>
       <category>Board</category>
       <license>BSD 3-Clause, Apache 2.0</license>
@@ -33,7 +33,7 @@
         <provides id="Heap" value="65536"/>
       </interfaces>
     </layer>
-    <layer name="RTOS">
+    <layer name="RTOS" title="RTX">
       <description>Keil RTX5 open-source real-time operating system with CMSIS-RTOS v2 API</description>
       <doc>https://www2.keil.com/mdk5/cmsis/rtx</doc>
       <category>RTOS</category>
@@ -45,18 +45,18 @@
   </layers>
 
   <packages>
-    <package name="CMSIS-Driver" vendor="ARM"/>
-    <package name="CMSIS" vendor="ARM"/>
-    <package name="ARM_Compiler" vendor="Keil"/>
+    <package name="CMSIS-Driver" vendor="ARM" version="2.7.2:2.7.2"/>
+    <package name="CMSIS" vendor="ARM" version="5.9.0:5.9.0"/>
+    <package name="ARM_Compiler" vendor="Keil" version="1.7.2:1.7.2"/>
     <package name="IMXRT1050-EVKB_BSP" vendor="Keil" version="1.0.0:1.0.0"/>
     <package name="iMXRT105x_MWP" vendor="Keil" version="1.4.0:1.4.0"/>
     <package name="EVKB-IMXRT1050_BSP" vendor="NXP" version="13.1.0:13.1.0"/>
     <package name="MIMXRT1052_DFP" vendor="NXP" version="13.1.0:13.1.0"/>
-    <package name="flatbuffers" vendor="tensorflow" version="0.4.0:0.4.0"/>
-    <package name="gemmlowp" vendor="tensorflow" version="0.4.0:0.4.0"/>
-    <package name="kissfft" vendor="tensorflow" version="0.4.0:0.4.0"/>
-    <package name="ruy" vendor="tensorflow" version="0.4.0:0.4.0"/>
-    <package name="tensorflow-lite-micro" vendor="tensorflow" version="0.4.0:0.4.0"/>
+    <package name="flatbuffers" vendor="tensorflow" version="1.22.5-rc4:1.22.5-rc4"/>
+    <package name="gemmlowp" vendor="tensorflow" version="1.22.5-rc4:1.22.5-rc4"/>
+    <package name="kissfft" vendor="tensorflow" version="1.22.5-rc4:1.22.5-rc4"/>
+    <package name="ruy" vendor="tensorflow" version="1.22.5-rc4:1.22.5-rc4"/>
+    <package name="tensorflow-lite-micro" vendor="tensorflow" version="1.22.5-rc4:1.22.5-rc4"/>
   </packages>
 
   <compilers>
@@ -66,11 +66,11 @@
   <target Ddsp="NO_DSP" Dendian="Little-endian" Dfpu="NO_FPU" Dmve="NO_MVE" Dname="MIMXRT1052DVL6B" Dsecure="Non-secure" Dtz="NO_TZ" Dvendor="NXP:11">
     <output intdir="./Objects/" name="microspeech" outdir="./Objects/" type="exe"/>
     <ldflags add="--diag_suppress 6314,6329,6439 --strict --predefine=&quot;-DXIP_BOOT_HEADER_ENABLE=1&quot; --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers --entry=Reset_Handler" compiler="AC6" file="./RTE/Device/MIMXRT1052DVL6B/MIMXRT1052xxxxx_flexspi_nor.scf"/>
-    <cflags add="-Os -Wno-documentation -Wno-documentation-unknown-command -Wno-license-management -Wno-missing-noreturn -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-nonportable-include-path -Wno-packed -Wno-parentheses-equality -Wno-reserved-id-macro -Wno-sign-conversion -Wno-unused-macros -ffunction-sections -fno-rtti -fshort-enums -fshort-wchar -funsigned-char -gdwarf-4 -std=c99 -xc" compiler="AC6"/>
-    <cxxflags add="-Os -Wno-documentation -Wno-documentation-unknown-command -Wno-license-management -Wno-missing-noreturn -Wno-missing-prototypes -Wno-missing-variable-declarations -Wno-nonportable-include-path -Wno-packed -Wno-parentheses-equality -Wno-reserved-id-macro -Wno-sign-conversion -Wno-unused-macros -ffunction-sections -fno-exceptions -fno-rtti -fshort-enums -fshort-wchar -funsigned-char -gdwarf-4 -std=c++14 -xc++" compiler="AC6"/>
-    <asflags add="-gdwarf-4 -masm=auto" compiler="AC6"/>
+    <cflags add="-xc -std=c99 -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -g -Os -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier" compiler="AC6"/>
+    <cxxflags add="-xc++ -std=c++14 -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions -g -Os -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier" compiler="AC6"/>
+    <asflags add="-masm=auto -Wa,armasm,--diag_suppress=A1950W -gdwarf-4" compiler="AC6"/>
     <includes>.;../VSI/audio/include;../micro_speech/src</includes>
-    <defines>CODEC_WM8960_ENABLE;SKIP_SYSCLK_INIT;XIP_BOOT_HEADER_DCD_ENABLE=1;XIP_BOOT_HEADER_ENABLE=1;XIP_EXTERNAL_FLASH=1;__EVENT_DRIVEN</defines>
+    <defines>__EVENT_DRIVEN;CODEC_WM8960_ENABLE;SKIP_SYSCLK_INIT;XIP_EXTERNAL_FLASH=1;XIP_BOOT_HEADER_ENABLE=1;XIP_BOOT_HEADER_DCD_ENABLE=1</defines>
   </target>
 
   <components>
@@ -96,13 +96,13 @@
     </component>
     <component Cclass="CMSIS Driver" Cgroup="Ethernet MAC" Cvendor="Keil" layer="Board"/>
     <component Cclass="CMSIS Driver" Cgroup="Ethernet PHY" Csub="KSZ8081RNA" Cvendor="Keil" layer="Board">
-      <cflags add="-DETH_PHY_REF_CLK_50M=&quot;1&quot;" compiler="AC6"/>
+      <cflags add="-DETH_PHY_REF_CLK_50M=&quot;1&quot;" compiler="AC6" remove="-g"/>
     </component>
     <component Cclass="CMSIS Driver" Cgroup="MCI" Cvendor="Keil" layer="Board"/>
     <component Cclass="CMSIS Driver" Cgroup="USART" Csub="Custom" Cvendor="ARM" layer="Board"/>
     <component Cclass="CMSIS Driver" Cgroup="USART" Csub="lpuart_cmsis" Cvendor="NXP" layer="Board"/>
     <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="IMXRT1050-EVKB" Cvendor="Keil" layer="Board">
-      <cflags add="-DVIO_SENSOR_DISABLE" compiler="AC6"/>
+      <cflags add="-DVIO_SENSOR_DISABLE" compiler="AC6" remove="-g"/>
     </component>
     <component Cclass="Data Exchange" Cgroup="Serialization" Csub="flatbuffers" Cvariant="tensorflow" Cvendor="tensorflow"/>
     <component Cclass="Data Processing" Cgroup="Math" Csub="gemmlowp fixed-point" Cvariant="tensorflow" Cvendor="tensorflow"/>
@@ -137,7 +137,7 @@
       <file attr="config" category="header" name="template/RTE_Device.h" version="1.0.0"/>
     </component>
     <component Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console" Cvendor="NXP" layer="Board">
-      <cflags add="-DSDK_DEBUGCONSOLE=&quot;1&quot; -D__MCUXPRESSO" compiler="AC6"/>
+      <cflags add="-DSDK_DEBUGCONSOLE=&quot;1&quot; -D__MCUXPRESSO" compiler="AC6" remove="-g"/>
     </component>
     <component Cclass="Device" Cgroup="SDK Utilities" Csub="serial_manager" Cvendor="NXP" layer="Board"/>
     <component Cclass="Device" Cgroup="SDK Utilities" Csub="serial_manager_uart" Cvendor="NXP" layer="Board"/>
@@ -151,9 +151,9 @@
     </component>
     <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel" Cvariant="CMSIS-NN" Cvendor="tensorflow"/>
     <component Cclass="Machine Learning" Cgroup="TensorFlow" Csub="Kernel Utils" Cvendor="tensorflow">
-      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/debug_log.cc" version="1.0"/>
-      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/micro_time.cc" version="1.0"/>
-      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/system_setup.cc" version="1.0"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/debug_log.cpp" version="1.22.5-rc4"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/cortex_m_generic/micro_time.cpp" version="1.22.5-rc4"/>
+      <file attr="config" category="sourceCpp" name="tensorflow/lite/micro/system_setup.cpp" version="1.22.5-rc4"/>
     </component>
     <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="Keil" layer="Board">
       <file attr="config" category="header" name="Config/EventRecorderConf.h" version="1.1.0"/>
@@ -213,6 +213,7 @@
       <file category="sourceCpp" name="../micro_speech/src/feature_provider.cc"/>
       <file category="sourceCpp" name="../micro_speech/src/main_functions.cc"/>
       <file category="sourceCpp" name="../micro_speech/src/recognize_commands.cc"/>
+      <file category="sourceC" name="../micro_speech/src/arm_nn_softmax_common_s8.c"/>
     </group>
   </files>
 

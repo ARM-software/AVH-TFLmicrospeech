@@ -17,16 +17,21 @@ limitations under the License.
 #include "stdio.h"
 #include "tensorflow/lite/micro/cortex_m_generic/debug_log_callback.h"
 
+extern "C" void stdio_init (void);
+
 namespace tflite {
 
 void debug_log_printf(const char* s) {
-  printf("%s",s);
+  printf("%s", s);
 }
 
 // To add an equivalent function for your own platform, create your own
 // implementation file, and place it in a subfolder named after the target. See
 // tensorflow/lite/micro/debug_log.cc for a similar example.
 void InitializeTarget() {
+#ifdef __TEST
+  stdio_init();
+#endif
   RegisterDebugLogCallback(debug_log_printf);
 }
 
