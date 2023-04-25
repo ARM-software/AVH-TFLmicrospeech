@@ -6,7 +6,7 @@ solution:
     - pack: ARM::CMSIS
 
   target-types:
-    - type: AVH                               # runs on Arm Virtual Hardware
+    - type: MIMXRT1064                               # runs on NXP i.MX RT1064 EVK
       device: NXP::MIMXRT1064DVL6A
                                               # add more hardware targets (don't forget to add the required packs)
 

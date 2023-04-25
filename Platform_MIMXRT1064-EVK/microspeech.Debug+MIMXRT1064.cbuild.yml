@@ -1,0 +1,1079 @@
+build:
+  solution: ../microspeech.csolution.yml
+  project: microspeech.cproject.yml
+  context: microspeech.Debug+MIMXRT1064
+  compiler: AC6
+  device: NXP::MIMXRT1064DVL6A
+  processor:
+    fpu: on
+    endian: little
+    trustzone: non-secure
+  packs:
+    - pack: ARM::CMSIS-Driver@2.7.2
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver/2.7.2
+    - pack: ARM::CMSIS@5.9.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0
+    - pack: Keil::ARM_Compiler@1.7.2
+      path: ${CMSIS_PACK_ROOT}/Keil/ARM_Compiler/1.7.2
+    - pack: Keil::MIMXRT1064-EVK_BSP@1.2.1
+      path: ${CMSIS_PACK_ROOT}/Keil/MIMXRT1064-EVK_BSP/1.2.1
+    - pack: Keil::iMXRT1064_MWP@1.4.0
+      path: ${CMSIS_PACK_ROOT}/Keil/iMXRT1064_MWP/1.4.0
+    - pack: NXP::EVK-MIMXRT1064_BSP@13.0.0
+      path: ${CMSIS_PACK_ROOT}/NXP/EVK-MIMXRT1064_BSP/13.0.0
+    - pack: NXP::MIMXRT1064_DFP@13.0.0
+      path: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0
+    - pack: tensorflow::flatbuffers@1.22.5-rc4
+      path: ${CMSIS_PACK_ROOT}/tensorflow/flatbuffers/1.22.5-rc4
+    - pack: tensorflow::gemmlowp@1.22.5-rc4
+      path: ${CMSIS_PACK_ROOT}/tensorflow/gemmlowp/1.22.5-rc4
+    - pack: tensorflow::kissfft@1.22.5-rc4
+      path: ${CMSIS_PACK_ROOT}/tensorflow/kissfft/1.22.5-rc4
+    - pack: tensorflow::ruy@1.22.5-rc4
+      path: ${CMSIS_PACK_ROOT}/tensorflow/ruy/1.22.5-rc4
+    - pack: tensorflow::tensorflow-lite-micro@1.22.5-rc4
+      path: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4
+  optimize: none
+  debug: on
+  misc:
+    ASM:
+      - -masm=auto
+    C:
+      - -std=gnu11
+      - -ffunction-sections
+      - -Wno-macro-redefined
+      - -Wno-pragma-pack
+      - -Wno-parentheses-equality
+    CPP:
+      - -ffunction-sections
+      - -Wno-macro-redefined
+      - -Wno-pragma-pack
+      - -Wno-parentheses-equality
+    Link:
+      - --entry=Reset_Handler
+      - --info summarysizes
+      - --map
+  define:
+    - CPU_MIMXRT1064DVL6A
+    - _RTE_
+  add-path:
+    - RTE/Board_Support/MIMXRT1064DVL6A
+    - RTE/CMSIS
+    - RTE/Compiler
+    - RTE/Device/MIMXRT1064DVL6A
+    - RTE/_Debug_MIMXRT1064
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/PrivateInclude
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Driver/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Driver/VIO/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Include
+    - ${CMSIS_PACK_ROOT}/Keil/ARM_Compiler/1.7.2/Include
+    - ${CMSIS_PACK_ROOT}/NXP/EVK-MIMXRT1064_BSP/13.0.0/xip
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/cmsis_drivers
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/i2c
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/port
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/wm8960
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/i2c
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/lists
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/serial_manager
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/uart
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/utilities/debug_console
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/utilities/str
+    - ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/xip
+    - ${CMSIS_PACK_ROOT}/tensorflow/flatbuffers/1.22.5-rc4/src/include
+    - ${CMSIS_PACK_ROOT}/tensorflow/gemmlowp/1.22.5-rc4/src
+    - ${CMSIS_PACK_ROOT}/tensorflow/kissfft/1.22.5-rc4/src
+    - ${CMSIS_PACK_ROOT}/tensorflow/kissfft/1.22.5-rc4/src/tools
+    - ${CMSIS_PACK_ROOT}/tensorflow/ruy/1.22.5-rc4/src
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/c
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/core/api
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/internal
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/internal/optimized
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/internal/reference
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/internal/reference/integer_ops
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/arena_allocator
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/cortex_m_generic
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/memory_planner
+    - ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/schema
+  output-type: exe
+  output-dirs:
+    gendir: ..
+    intdir: ../tmp/microspeech/MIMXRT1064/Debug
+    outdir: ../out/MIMXRT1064/
+    rtedir: RTE
+  components:
+    - component: ARM::CMSIS:CORE@5.6.0
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@5.9.0
+      selected-by: ARM::CMSIS:CORE
+    - component: ARM::CMSIS:DSP&Source@1.10.0
+      condition: CMSIS DSP
+      from-pack: ARM::CMSIS@5.9.0
+      selected-by: ARM::CMSIS:DSP
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/BayesFunctions/BayesFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/BayesFunctions/BayesFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/CommonTables/CommonTables.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/CommonTables/CommonTablesF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/ControllerFunctions/ControllerFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/DistanceFunctions/DistanceFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/DistanceFunctions/DistanceFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/FastMathFunctions/FastMathFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/FastMathFunctions/FastMathFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/FilteringFunctions/FilteringFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/FilteringFunctions/FilteringFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/MatrixFunctions/MatrixFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/MatrixFunctions/MatrixFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/QuaternionMathFunctions/QuaternionMathFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/SVMFunctions/SVMFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/SVMFunctions/SVMFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/SupportFunctions/SupportFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/SupportFunctions/SupportFunctionsF16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/TransformFunctions/TransformFunctions.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/DSP/Source/TransformFunctions/TransformFunctionsF16.c
+          category: source
+    - component: ARM::CMSIS:NN Lib@3.1.0
+      condition: CMSIS NN
+      from-pack: ARM::CMSIS@5.9.0
+      selected-by: ARM::CMSIS:NN Lib
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ActivationFunctions/arm_nn_activations_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ActivationFunctions/arm_nn_activations_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ActivationFunctions/arm_relu6_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ActivationFunctions/arm_relu_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ActivationFunctions/arm_relu_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_add_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_add_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_mul_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/BasicMathFunctions/arm_elementwise_mul_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_w.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_x.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_y.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConcatenationFunctions/arm_concatenation_s8_z.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1_x_n_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1x1_HWC_q7_fast_nonsquare.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_1x1_s8_fast.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_basic.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_fast.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q15_fast_nonsquare.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_RGB.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_basic.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_basic_nonsquare.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_fast.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_HWC_q7_fast_nonsquare.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_fast_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_wrapper_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_convolve_wrapper_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_3x3_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_s8_opt.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_u8_basic_ver1.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_conv_wrapper_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_separable_conv_HWC_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_depthwise_separable_conv_HWC_q7_nonsquare.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_depthwise_conv_s8_core.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_q7_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_q7_q15_reordered.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_kernel_s8_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ConvolutionFunctions/arm_nn_mat_mult_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_mat_q7_vec_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_mat_q7_vec_q15_opt.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q15_opt.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_q7_opt.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/FullyConnectedFunctions/arm_fully_connected_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_accumulate_q7_to_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_add_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_depthwise_conv_nt_t_padded_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_depthwise_conv_nt_t_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_core_1x_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_core_4x_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mul_kernel_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mat_mult_nt_t_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mult_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_mult_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_vec_mat_mult_t_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_vec_mat_mult_t_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nn_vec_mat_mult_t_svdf_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_nntables.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_no_shift.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_reordered_no_shift.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_reordered_with_offset.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/NNSupportFunctions/arm_q7_to_q15_with_offset.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/PoolingFunctions/arm_avgpool_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/PoolingFunctions/arm_avgpool_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/PoolingFunctions/arm_max_pool_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/PoolingFunctions/arm_max_pool_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/PoolingFunctions/arm_pool_q7_HWC.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/ReshapeFunctions/arm_reshape_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SVDFunctions/arm_svdf_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SVDFunctions/arm_svdf_state_s16_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_q15.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_q7.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_s8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_s8_s16.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_u8.c
+          category: source
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/NN/Source/SoftmaxFunctions/arm_softmax_with_batch_q7.c
+          category: source
+    - component: ARM::CMSIS:RTOS2:Keil RTX5&Library@5.5.4
+      condition: RTOS2 RTX5
+      from-pack: ARM::CMSIS@5.9.0
+      selected-by: ARM::CMSIS:RTOS2:Keil RTX5
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Library/ARM/RTX_CM4F.lib
+          category: library
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Source/rtx_lib.c
+          category: source
+        - file: RTE/CMSIS/RTX_Config.c
+          category: source
+          attr: config
+          version: 5.1.1
+        - file: RTE/CMSIS/RTX_Config.h
+          category: header
+          attr: config
+          version: 5.5.2
+    - component: Keil::CMSIS Driver:Ethernet MAC@1.1.0
+      condition: MIMXRT1064 CMSIS EMAC
+      from-pack: Keil::iMXRT1064_MWP@1.4.0
+      selected-by: Keil::CMSIS Driver:Ethernet MAC
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/iMXRT1064_MWP/1.4.0/CMSIS/Driver/EMAC_iMXRT1064.c
+          category: source
+    - component: Keil::CMSIS Driver:Ethernet PHY:KSZ8081RNA@6.3.0
+      condition: CMSIS Core
+      from-pack: ARM::CMSIS-Driver@2.7.2
+      selected-by: Keil::CMSIS Driver:Ethernet PHY:KSZ8081RNA
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver/2.7.2/ETH/PHY_KSZ8081RNA.c
+          category: source
+    - component: Keil::CMSIS Driver:MCI@1.1.0
+      condition: MIMXRT1064 CMSIS MCI
+      from-pack: Keil::iMXRT1064_MWP@1.4.0
+      selected-by: Keil::CMSIS Driver:MCI
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/iMXRT1064_MWP/1.4.0/CMSIS/Driver/MCI_iMXRT1064.c
+          category: source
+    - component: Keil::CMSIS Driver:VIO:Board&MIMXRT1064-EVK@1.0.0
+      condition: MIMXRT1064-EVK VIO
+      from-pack: Keil::MIMXRT1064-EVK_BSP@1.2.1
+      selected-by: Keil::CMSIS Driver:VIO:Board
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MIMXRT1064-EVK_BSP/1.2.1/Drivers/Platform/vio_MIMXRT1064-EVK.c
+          category: source
+    - component: Keil::Compiler&ARM Compiler:Event Recorder&DAP@1.5.1
+      condition: Cortex-M Device
+      from-pack: Keil::ARM_Compiler@1.7.2
+      selected-by: Compiler:Event Recorder&DAP
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/ARM_Compiler/1.7.2/Source/EventRecorder.c
+          category: source
+        - file: RTE/Compiler/EventRecorderConf.h
+          category: header
+          attr: config
+          version: 1.1.0
+    - component: Keil::Compiler&ARM Compiler:I/O:STDERR&User@1.2.0
+      condition: ARMCC Cortex-M
+      from-pack: Keil::ARM_Compiler@1.7.2
+      selected-by: Compiler:I/O:STDERR&User
+    - component: Keil::Compiler&ARM Compiler:I/O:STDIN&User@1.2.0
+      condition: ARMCC Cortex-M
+      from-pack: Keil::ARM_Compiler@1.7.2
+      selected-by: Compiler:I/O:STDIN&User
+    - component: Keil::Compiler&ARM Compiler:I/O:STDOUT&User@1.2.0
+      condition: ARMCC Cortex-M
+      from-pack: Keil::ARM_Compiler@1.7.2
+      selected-by: Compiler:I/O:STDOUT&User
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/ARM_Compiler/1.7.2/Source/retarget_io.c
+          category: source
+    - component: NXP::Board Support:SDK Project Template:project_template&MIMXRT1064@1.0.0
+      condition: device.MIMXRT1064_AND___component.serial_manager_AND_utility.debug_console__OR_utility.debug_console_lite__AND_component.lpuart_adapter_AND_device.MIMXRT1064_startup_AND_driver.clock_AND_driver.common_AND_driver.igpio_AND_driver.iomuxc_AND_driver.lpuart
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Board Support:SDK Project Template:project_template
+      files:
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/board.c
+          category: sourceC
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/board.h
+          category: header
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/clock_config.c
+          category: sourceC
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/clock_config.h
+          category: header
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/peripherals.c
+          category: sourceC
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/peripherals.h
+          category: header
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/pin_mux.c
+          category: sourceC
+          attr: config
+          version: 1.0.0
+        - file: RTE/Board_Support/MIMXRT1064DVL6A/pin_mux.h
+          category: header
+          attr: config
+          version: 1.0.0
+    - component: NXP::CMSIS Driver:USART:lpuart_cmsis@2.1.0
+      condition: device.MIMXRT1064_AND_CMSIS_Driver_Include.USART_AND_RTE_Device_AND_driver.lpuart
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::CMSIS Driver:USART:lpuart_cmsis
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/cmsis_drivers/fsl_lpuart_cmsis.c
+          category: sourceC
+    - component: NXP::Device:CMSIS:MIMXRT1064_header@1.0.0
+      condition: device.MIMXRT1064_AND_CMSIS_Include_core_cm7
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:CMSIS:MIMXRT1064_header
+    - component: NXP::Device:CMSIS:MIMXRT1064_system@1.0.0
+      condition: device.MIMXRT1064_AND_device.MIMXRT1064_CMSIS
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:CMSIS:MIMXRT1064_system
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/system_MIMXRT1064.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:clock@2.4.0
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:clock
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_clock.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:codec@2.2.1
+      condition: device.MIMXRT1064_AND__component.codec_cs42888_adapter_OR_component.codec_da7212_adapter_OR_component.codec_sgtl_adapter_OR_component.codec_wm8904_adapter_OR_component.codec_wm8960_adapter_OR_component.cs42888_adapter_OR_component.da7212_adapter_OR_component.sgtl_adapter_OR_component.wm8904_adapter_OR_component.wm8960_adapter__AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:codec
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/fsl_codec_common.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:codec_i2c@2.1.0
+      condition: device.MIMXRT1064_AND_component.lpi2c_adapter_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:codec_i2c
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/i2c/fsl_codec_i2c.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:codec_wm8960_adapter@2.2.0
+      condition: device.MIMXRT1064_AND_driver.codec_AND_driver.wm8960
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:codec_wm8960_adapter
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/port/fsl_codec_adapter.c
+          category: sourceC
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/port/fsl_wm8960_adapter.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:common@2.2.9
+      condition: device.MIMXRT1064_AND_device.MIMXRT1064_CMSIS_AND_driver.clock
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:common
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_common.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:dmamux@2.0.5
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:dmamux
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_dmamux.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:edma@2.4.1
+      condition: device.MIMXRT1064_AND_driver.common_AND_driver.dmamux
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:edma
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_edma.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:enet@2.3.4
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:enet
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_enet.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:gpio@2.0.5
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:gpio
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_gpio.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:i2c@2.2.0
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:i2c
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_lpi2c.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:iomuxc@2.0.1
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:iomuxc
+    - component: NXP::Device:SDK Drivers:lists@1.0.0
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:lists
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/lists/fsl_component_generic_list.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:lpi2c_adapter@1.0.0
+      condition: device.MIMXRT1064_AND_driver.common_AND_driver.lpi2c
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:lpi2c_adapter
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/i2c/fsl_adapter_lpi2c.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:lpuart@2.4.1
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:lpuart
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_lpuart.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:lpuart_adapter@1.0.0
+      condition: device.MIMXRT1064_AND_driver.common_AND_driver.lpuart
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:lpuart_adapter
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/uart/fsl_adapter_lpuart.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:lpuart_edma@2.4.0
+      condition: device.MIMXRT1064_AND_driver.edma_AND_driver.lpuart
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:lpuart_edma
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_lpuart_edma.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:sai@2.3.2
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:sai
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_sai.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:sai_edma@2.3.1
+      condition: device.MIMXRT1064_AND_driver.edma_AND_driver.sai
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:sai_edma
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_sai_edma.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:sdhc@2.7.0
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:sdhc
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/drivers/fsl_usdhc.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:wm8960@2.1.3
+      condition: device.MIMXRT1064_AND_component.codec_i2c_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:wm8960
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/codec/wm8960/fsl_wm8960.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:xip_board@2.0.1
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::EVK-MIMXRT1064_BSP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:xip_board
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/EVK-MIMXRT1064_BSP/13.0.0/xip/evkmimxrt1064_flexspi_nor_config.c
+          category: sourceC
+    - component: NXP::Device:SDK Drivers:xip_device@2.0.2
+      condition: device.MIMXRT1064_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Drivers:xip_device
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/xip/fsl_flexspi_nor_boot.c
+          category: sourceC
+    - component: NXP::Device:SDK Project Template:RTE_Device@1.0.0
+      condition: device.MIMXRT1064_AND_driver.edma
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Project Template:RTE_Device
+      files:
+        - file: RTE/Device/MIMXRT1064DVL6A/RTE_Device.h
+          category: header
+          attr: config
+          version: 1.0.0
+    - component: NXP::Device:SDK Utilities:debug_console@1.0.0
+      condition: device.MIMXRT1064_AND_component.serial_manager_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Utilities:debug_console
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/utilities/debug_console/fsl_debug_console.c
+          category: sourceC
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/utilities/str/fsl_str.c
+          category: sourceC
+    - component: NXP::Device:SDK Utilities:serial_manager@1.0.0
+      condition: device.MIMXRT1064_AND__component.serial_manager_swo_OR_component.serial_manager_uart_OR_component.serial_manager_virtual__AND_component.lists_AND_driver.common
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Utilities:serial_manager
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/serial_manager/fsl_component_serial_manager.c
+          category: sourceC
+    - component: NXP::Device:SDK Utilities:serial_manager_uart@1.0.0
+      condition: device.MIMXRT1064_AND_component.lpuart_adapter_AND_component.serial_manager_AND_driver.lpuart
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:SDK Utilities:serial_manager_uart
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/components/serial_manager/fsl_component_serial_port_uart.c
+          category: sourceC
+    - component: NXP::Device:Startup:MIMXRT1064_startup@1.1.0
+      condition: device.MIMXRT1064_AND__armclang_OR_iar__AND_device.MIMXRT1064_system
+      from-pack: NXP::MIMXRT1064_DFP@13.0.0
+      selected-by: NXP::Device:Startup:MIMXRT1064_startup
+      files:
+        - file: ${CMSIS_PACK_ROOT}/NXP/MIMXRT1064_DFP/13.0.0/arm/startup_MIMXRT1064.S
+          category: sourceAsm
+        - file: RTE/Device/MIMXRT1064DVL6A/MIMXRT1064xxxxx_flexspi_nor.scf
+          category: linkerScript
+          attr: config
+          version: 1.1.0
+        - file: RTE/Device/MIMXRT1064DVL6A/MIMXRT1064xxxxx_flexspi_nor_sdram.scf
+          category: linkerScript
+          attr: config
+          version: 1.1.0
+        - file: RTE/Device/MIMXRT1064DVL6A/MIMXRT1064xxxxx_ram.scf
+          category: linkerScript
+          attr: config
+          version: 1.1.0
+        - file: RTE/Device/MIMXRT1064DVL6A/MIMXRT1064xxxxx_sdram.scf
+          category: linkerScript
+          attr: config
+          version: 1.1.0
+        - file: RTE/Device/MIMXRT1064DVL6A/MIMXRT1064xxxxx_sdram_txt.scf
+          category: linkerScript
+          attr: config
+          version: 1.1.0
+    - component: tensorflow::Data Exchange:Serialization:flatbuffers&tensorflow@1.22.5-rc4
+      from-pack: tensorflow::flatbuffers@1.22.5-rc4
+      selected-by: tensorflow::Data Exchange:Serialization:flatbuffers
+    - component: tensorflow::Data Processing:Math:gemmlowp fixed-point&tensorflow@1.22.5-rc4
+      from-pack: tensorflow::gemmlowp@1.22.5-rc4
+      selected-by: tensorflow::Data Processing:Math:gemmlowp fixed-point
+    - component: tensorflow::Data Processing:Math:kissfft&tensorflow@1.22.5-rc4
+      from-pack: tensorflow::kissfft@1.22.5-rc4
+      selected-by: tensorflow::Data Processing:Math:kissfft
+      files:
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/kissfft/1.22.5-rc4/src/kiss_fft.c
+          category: sourceC
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/kissfft/1.22.5-rc4/src/tools/kiss_fftr.c
+          category: sourceC
+    - component: tensorflow::Data Processing:Math:ruy&tensorflow@1.22.5-rc4
+      from-pack: tensorflow::ruy@1.22.5-rc4
+      selected-by: tensorflow::Data Processing:Math:ruy
+    - component: tensorflow::Machine Learning:TensorFlow:Kernel Utils@1.22.5-rc4
+      from-pack: tensorflow::tensorflow-lite-micro@1.22.5-rc4
+      selected-by: tensorflow::Machine Learning:TensorFlow:Kernel Utils
+      files:
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/kernel_util.cpp
+          category: sourceCpp
+        - file: RTE/Machine_Learning/debug_log.cpp
+          category: sourceCpp
+          attr: config
+          version: 1.22.5-rc4
+        - file: RTE/Machine_Learning/micro_time.cpp
+          category: sourceCpp
+          attr: config
+          version: 1.22.5-rc4
+        - file: RTE/Machine_Learning/system_setup.cpp
+          category: sourceCpp
+          attr: config
+          version: 1.22.5-rc4
+    - component: tensorflow::Machine Learning:TensorFlow:Kernel&CMSIS-NN@1.22.5-rc4
+      condition: CMSIS-NN
+      from-pack: tensorflow::tensorflow-lite-micro@1.22.5-rc4
+      selected-by: tensorflow::Machine Learning:TensorFlow:Kernel
+      files:
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/c/common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/core/api/error_reporter.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/core/api/flatbuffer_conversions.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/core/api/op_resolver.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/core/api/tensor_utils.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/internal/quantization_util.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/kernels/internal/reference/portable_tensor_utils.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/all_ops_resolver.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/arena_allocator/non_persistent_arena_buffer_allocator.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/arena_allocator/recording_simple_memory_allocator.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/arena_allocator/simple_memory_allocator.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/fake_micro_context.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/flatbuffer_utils.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/activations.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/activations_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/add_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/add_n.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/arg_min_max.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/assign_variable.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/batch_to_space_nd.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/broadcast_args.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/broadcast_to.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/call_once.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cast.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/ceil.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/circular_buffer.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/circular_buffer_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/add.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/conv.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/depthwise_conv.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/fully_connected.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/mul.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/pooling.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/softmax.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cmsis_nn/svdf.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/comparisons.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/concatenation.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/conv_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/cumsum.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/depth_to_space.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/depthwise_conv_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/dequantize.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/dequantize_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/detection_postprocess.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/elementwise.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/elu.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/ethosu.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/exp.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/expand_dims.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/fill.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/floor.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/floor_div.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/floor_mod.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/fully_connected_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/gather.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/gather_nd.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/hard_swish.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/hard_swish_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/if.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/kernel_runner.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/kernel_util.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/l2_pool_2d.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/l2norm.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/leaky_relu.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/leaky_relu_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/log_softmax.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/logical.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/logical_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/logistic.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/logistic_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/lstm_eval.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/maximum_minimum.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/micro_tensor_utils.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/mirror_pad.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/mul_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/neg.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/pack.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/pad.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/pooling_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/prelu.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/prelu_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/quantize.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/quantize_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/read_variable.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/reduce.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/reshape.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/resize_bilinear.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/resize_nearest_neighbor.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/round.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/shape.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/slice.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/softmax_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/space_to_batch_nd.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/space_to_depth.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/split.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/split_v.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/squared_difference.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/squeeze.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/strided_slice.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/sub.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/sub_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/svdf_common.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/tanh.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/transpose.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/transpose_conv.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/unidirectional_sequence_lstm.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/unpack.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/var_handle.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/while.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/kernels/zeros_like.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/memory_helpers.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/memory_planner/linear_memory_planner.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/memory_planner/non_persistent_buffer_planner_shim.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_allocation_info.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_allocator.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_context.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_error_reporter.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_graph.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_interpreter.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_profiler.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_resource_variable.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_string.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/micro_utils.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/mock_micro_graph.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/recording_micro_allocator.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/test_helper_custom_ops.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/micro/test_helpers.cpp
+          category: sourceCpp
+        - file: ${CMSIS_PACK_ROOT}/tensorflow/tensorflow-lite-micro/1.22.5-rc4/tensorflow/lite/schema/schema_utils.cpp
+          category: sourceCpp
+  groups:
+    - group: App
+      files:
+        - file: ./microspeech.c
+          category: sourceC
+    - group: Board
+      files:
+        - file: ./main.c
+          category: sourceC
+        - file: ./main.h
+          category: header
+    - group: Board IO
+      files:
+        - file: ./Board_IO/retarget_stdio.c
+          category: sourceC
+    - group: Driver
+      files:
+        - file: ./Driver_Audio/Audio_MIMXRT1064-EVK.c
+          category: sourceC
+    - group: MCUXpresso
+      files:
+        - file: ./MIMXRT1064-EVK.mex
+          category: other
+    - group: Documentation
+      files:
+        - file: ./README.md
+          category: doc
+    - group: TF_micro_frontend
+      files:
+        - file: ../micro_speech/src/microfrontend/lib/fft.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/microfrontend/lib/fft_util.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/microfrontend/lib/filterbank.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/filterbank_util.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/frontend.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/frontend_util.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/log_lut.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/log_scale.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/log_scale_util.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/noise_reduction.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/noise_reduction_util.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/pcan_gain_control.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/pcan_gain_control_util.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/window.c
+          category: sourceC
+        - file: ../micro_speech/src/microfrontend/lib/window_util.c
+          category: sourceC
+    - group: TF_micro_features
+      files:
+        - file: ../micro_speech/src/micro_features/micro_features_generator.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/micro_features/micro_model_settings.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/micro_features/model.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/micro_features/no_micro_features_data.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/micro_features/yes_micro_features_data.cc
+          category: sourceCpp
+    - group: TF_main
+      files:
+        - file: ../micro_speech/src/audio_provider.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/command_responder.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/feature_provider.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/main.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/main_functions.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/recognize_commands.cc
+          category: sourceCpp
+        - file: ../micro_speech/src/arm_nn_softmax_common_s8.c
+          category: sourceC
+  constructed-files:
+    - file: RTE/_Debug_MIMXRT1064/Pre_Include_Global.h
+      category: preIncludeGlobal
+    - file: RTE/_Debug_MIMXRT1064/RTE_Components.h
+      category: header
