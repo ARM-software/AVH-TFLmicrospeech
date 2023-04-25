@@ -1,0 +1,26 @@
+solution:
+  compiler: AC6                               # currently required for components Compiler:I/O
+
+# it is recommended to list the pack or packs that define the device or board used in the csolution.yml file
+  packs:
+    - pack: ARM::CMSIS
+
+  target-types:
+    - type: AVH                               # runs on Arm Virtual Hardware
+      device: NXP::MIMXRT1064DVL6A
+                                              # add more hardware targets (don't forget to add the required packs)
+
+  build-types:                                # defines toolchain options for 'debug' and 'release'
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  output-dirs:
+    outdir: ./out/$TargetType$/
+
+  projects:                               # list related projects
+    - project: ./Platform_MIMXRT1064-EVK/microspeech.cproject.yml

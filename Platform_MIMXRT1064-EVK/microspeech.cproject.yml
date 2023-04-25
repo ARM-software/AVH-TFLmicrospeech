@@ -1,0 +1,120 @@
+project:
+
+  packs:
+  - pack: tensorflow::kissfft@1.22.5-rc4
+  - pack: Keil::iMXRT1064_MWP@1.4.0
+  - pack: ARM::CMSIS@5.9.0
+  - pack: Keil::ARM_Compiler@1.7.2
+  - pack: tensorflow::gemmlowp@1.22.5-rc4
+  - pack: NXP::EVK-MIMXRT1064_BSP@13.0.0
+  - pack: NXP::MIMXRT1064_DFP@13.0.0
+  - pack: ARM::CMSIS-Driver@2.7.2
+  - pack: tensorflow::tensorflow-lite-micro@1.22.5-rc4
+  - pack: tensorflow::flatbuffers@1.22.5-rc4
+  - pack: Keil::MIMXRT1064-EVK_BSP@1.2.1
+  - pack: tensorflow::ruy@1.22.5-rc4
+
+  components:
+  - component: ARM::CMSIS:CORE
+  - component: ARM::CMSIS:DSP
+  - component: ARM::CMSIS:NN Lib
+  - component: ARM::CMSIS:RTOS2:Keil RTX5
+  - component: Compiler:Event Recorder&DAP
+  - component: Compiler:I/O:STDERR&User
+  - component: Compiler:I/O:STDIN&User
+  - component: Compiler:I/O:STDOUT&User
+  - component: Keil::CMSIS Driver:Ethernet MAC
+  - component: Keil::CMSIS Driver:Ethernet PHY:KSZ8081RNA
+  - component: Keil::CMSIS Driver:MCI
+  - component: Keil::CMSIS Driver:VIO:Board
+  - component: NXP::Board Support:SDK Project Template:project_template
+  - component: NXP::CMSIS Driver:USART:lpuart_cmsis
+  - component: NXP::Device:CMSIS:MIMXRT1064_header
+  - component: NXP::Device:CMSIS:MIMXRT1064_system
+  - component: NXP::Device:SDK Drivers:clock
+  - component: NXP::Device:SDK Drivers:codec
+  - component: NXP::Device:SDK Drivers:codec_i2c
+  - component: NXP::Device:SDK Drivers:codec_wm8960_adapter
+  - component: NXP::Device:SDK Drivers:common
+  - component: NXP::Device:SDK Drivers:dmamux
+  - component: NXP::Device:SDK Drivers:edma
+  - component: NXP::Device:SDK Drivers:enet
+  - component: NXP::Device:SDK Drivers:gpio
+  - component: NXP::Device:SDK Drivers:i2c
+  - component: NXP::Device:SDK Drivers:iomuxc
+  - component: NXP::Device:SDK Drivers:lists
+  - component: NXP::Device:SDK Drivers:lpi2c_adapter
+  - component: NXP::Device:SDK Drivers:lpuart
+  - component: NXP::Device:SDK Drivers:lpuart_adapter
+  - component: NXP::Device:SDK Drivers:lpuart_edma
+  - component: NXP::Device:SDK Drivers:sai
+  - component: NXP::Device:SDK Drivers:sai_edma
+  - component: NXP::Device:SDK Drivers:sdhc
+  - component: NXP::Device:SDK Drivers:wm8960
+  - component: NXP::Device:SDK Drivers:xip_board
+  - component: NXP::Device:SDK Drivers:xip_device
+  - component: NXP::Device:SDK Project Template:RTE_Device
+  - component: NXP::Device:SDK Utilities:debug_console
+  - component: NXP::Device:SDK Utilities:serial_manager
+  - component: NXP::Device:SDK Utilities:serial_manager_uart
+  - component: NXP::Device:Startup:MIMXRT1064_startup
+  - component: tensorflow::Data Exchange:Serialization:flatbuffers
+  - component: tensorflow::Data Processing:Math:gemmlowp fixed-point
+  - component: tensorflow::Data Processing:Math:kissfft
+  - component: tensorflow::Data Processing:Math:ruy
+  - component: tensorflow::Machine Learning:TensorFlow:Kernel Utils
+  - component: tensorflow::Machine Learning:TensorFlow:Kernel
+
+  groups:
+  - group: App
+    files:
+      - file: ./microspeech.c
+  - group: Board
+    files:
+      - file: ./main.c
+      - file: ./main.h
+  - group: Board IO
+    files:
+      - file: ./Board_IO/retarget_stdio.c
+  - group: Driver
+    files:
+      - file: ./Driver_Audio/Audio_MIMXRT1064-EVK.c
+  - group: MCUXpresso
+    files:
+      - file: ./MIMXRT1064-EVK.mex
+  - group: Documentation
+    files:
+      - file: ./README.md
+  - group: TF_micro_frontend
+    files:
+      - file: ../micro_speech/src/microfrontend/lib/fft.cc
+      - file: ../micro_speech/src/microfrontend/lib/fft_util.cc
+      - file: ../micro_speech/src/microfrontend/lib/filterbank.c
+      - file: ../micro_speech/src/microfrontend/lib/filterbank_util.c
+      - file: ../micro_speech/src/microfrontend/lib/frontend.c
+      - file: ../micro_speech/src/microfrontend/lib/frontend_util.c
+      - file: ../micro_speech/src/microfrontend/lib/log_lut.c
+      - file: ../micro_speech/src/microfrontend/lib/log_scale.c
+      - file: ../micro_speech/src/microfrontend/lib/log_scale_util.c
+      - file: ../micro_speech/src/microfrontend/lib/noise_reduction.c
+      - file: ../micro_speech/src/microfrontend/lib/noise_reduction_util.c
+      - file: ../micro_speech/src/microfrontend/lib/pcan_gain_control.c
+      - file: ../micro_speech/src/microfrontend/lib/pcan_gain_control_util.c
+      - file: ../micro_speech/src/microfrontend/lib/window.c
+      - file: ../micro_speech/src/microfrontend/lib/window_util.c
+  - group: TF_micro_features
+    files:
+      - file: ../micro_speech/src/micro_features/micro_features_generator.cc
+      - file: ../micro_speech/src/micro_features/micro_model_settings.cc
+      - file: ../micro_speech/src/micro_features/model.cc
+      - file: ../micro_speech/src/micro_features/no_micro_features_data.cc
+      - file: ../micro_speech/src/micro_features/yes_micro_features_data.cc
+  - group: TF_main
+    files:
+      - file: ../micro_speech/src/audio_provider.cc
+      - file: ../micro_speech/src/command_responder.cc
+      - file: ../micro_speech/src/feature_provider.cc
+      - file: ../micro_speech/src/main.cc
+      - file: ../micro_speech/src/main_functions.cc
+      - file: ../micro_speech/src/recognize_commands.cc
+      - file: ../micro_speech/src/arm_nn_softmax_common_s8.c

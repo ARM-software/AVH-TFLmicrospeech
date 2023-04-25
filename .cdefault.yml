@@ -1,0 +1,31 @@
+default:
+  compiler: GCC
+
+  misc:
+    - for-compiler: GCC
+      C:
+        - -std=gnu11
+      Link:
+        - --specs=nano.specs
+        - --specs=rdimon.specs
+
+    - for-compiler: AC6
+      C-CPP:
+        - -ffunction-sections
+        - -Wno-macro-redefined
+        - -Wno-pragma-pack
+        - -Wno-parentheses-equality
+      C:
+        - -std=gnu11
+      ASM:
+        - -masm=auto
+      Link:
+        - --entry=Reset_Handler
+        - --info summarysizes
+        - --map
+
+    - for-compiler: IAR
+      C-CPP:
+        - --dlib_config DLib_Config_Full.h
+      Link:
+        - --semihosting
