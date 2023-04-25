@@ -1,5 +1,18 @@
 project:
 
+  define:
+    - __EVENT_DRIVEN 
+    - CODEC_WM8960_ENABLE
+    - SKIP_SYSCLK_INIT
+    - XIP_EXTERNAL_FLASH=1
+    - XIP_BOOT_HEADER_ENABLE=1
+    - XIP_BOOT_HEADER_DCD_ENABLE=1
+    
+  add-paths:
+    - .
+    - ../VSI/audio/include
+    - ../micro_speech/src
+
   packs:
   - pack: tensorflow::kissfft@1.22.5-rc4
   - pack: Keil::iMXRT1064_MWP@1.4.0
@@ -27,7 +40,7 @@ project:
   - component: Keil::CMSIS Driver:Ethernet PHY:KSZ8081RNA
   - component: Keil::CMSIS Driver:MCI
   - component: Keil::CMSIS Driver:VIO:Board
-  - component: NXP::Board Support:SDK Project Template:project_template
+  - component: NXP::Board Support:SDK Project Template:project_template&evkmimxrt1064
   - component: NXP::CMSIS Driver:USART:lpuart_cmsis
   - component: NXP::Device:CMSIS:MIMXRT1064_header
   - component: NXP::Device:CMSIS:MIMXRT1064_system
@@ -114,7 +127,6 @@ project:
       - file: ../micro_speech/src/audio_provider.cc
       - file: ../micro_speech/src/command_responder.cc
       - file: ../micro_speech/src/feature_provider.cc
-      - file: ../micro_speech/src/main.cc
       - file: ../micro_speech/src/main_functions.cc
       - file: ../micro_speech/src/recognize_commands.cc
       - file: ../micro_speech/src/arm_nn_softmax_common_s8.c
