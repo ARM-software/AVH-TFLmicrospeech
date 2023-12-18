@@ -3,7 +3,7 @@ solution:
 
 # it is recommended to list the pack or packs that define the device or board used in the csolution.yml file
   packs:
-    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS@5.9.0
 
   target-types:
     - type: MIMXRT1064                               # runs on NXP i.MX RT1064 EVK
